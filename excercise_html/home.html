@@ -8,6 +8,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>EXCERCISE HTML</title>
   </head>
   <body>
@@ -53,8 +58,9 @@
             </div>
           </div>
           <div class="header-right">
-            <a href="#">
+            <a href="#" class="ico-cart">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge badge-cart" id="lblCartCount ">1</span>
             </a>
             <a href="#" class="btn btn-secondary">Sign In</a>
             <a href="#" class="btn btn-primary">Sign Up</a>
@@ -96,10 +102,10 @@
             </div>
             <div class="toolbar-right-sort">
               <button type="button" name="sort-list">
-                <img src="image/svg/list.svg" alt="Icon Sort List" />
+                <i class="fa fa-th-list" aria-hidden="true"></i>
               </button>
               <button type="button" name="sort-grid" class="active">
-                <img src="image/svg/grid.svg" alt="Icon Sort Grid" />
+                <i class="fa fa-th-large" aria-hidden="true"></i>
               </button>
             </div>
           </div>
