@@ -113,7 +113,7 @@ input.input-search::placeholder {
   }
   /* --------------------END-BANNER---------------------- */
   /* --------------------PRODUCT-------------------------- */
-.toolbar {
+  .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -222,7 +222,13 @@ input.input-search::placeholder {
     display: block;
     font-family: 'Inter', sans-serif;
   }
-  
+  .product-desc{
+    display: block;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    color: gray;
+    font-size: 12px;
+  }
   .badge-deal {
     float: right;
     padding: 5px 10px;
@@ -244,17 +250,17 @@ input.input-search::placeholder {
   }
   /* --------------------END-PRODUCT---------------------- */
   /* --------------------FOOTER-------------------------- */
-.page-footer {
-    padding: 60px 0;
-    background-color: #2264d1;
-    text-align: center;
-    color: #ffffff;
-  }
-  .page-footer > p {
-    padding: 10px 0;
-  }
-  .page-footer > p:nth-child(2) {
-    font-size: 48px;
-    font-weight: 700;
-  }
+    .page-footer {
+        padding: 60px 0;
+        background-color: #2264d1;
+        text-align: center;
+        color: #ffffff;
+    }
+    .page-footer > p {
+        padding: 10px 0;
+    }
+    .page-footer > p:nth-child(2) {
+        font-size: 48px;
+        font-weight: 700;
+    }
   /* --------------------END-FOOTER---------------------- */
