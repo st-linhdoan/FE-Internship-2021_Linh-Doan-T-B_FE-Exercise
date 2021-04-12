@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto:wght@500&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+.container {
+  width: 1140px;
+  margin: auto;
+}
+.btn {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #2264d1;
+  border: 1px solid #2264d1;
+  background: #ffffff;
+  transition: all, 0.5s;
+  font-family: "Quicksand", sans-serif;
+}
+.btn-primary {
+  background-color: #2264d1;
+  color: #ffffff;
+}
+.btn-primary:hover {
+  box-shadow: 0px 1px 6px #15394e;
+}
+.btn-secondary:hover {
+  box-shadow: 0px 1px 6px #14324466;
+}
+.section {
+  margin: 40px 0;
+}
+/* ------------------HEADER-------------------------- */
+.page-header {
+  border-bottom: 1px solid #b4bbe2;
+  height: 80px;
+  align-items: center;
+}
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left img.header-logo-img {
+  width: 124px;
+}
+.header-center {
+  display: flex;
+  align-items: center;
+}
+.header-center ul.menu-list {
+  display: none;
+}
+.header-center .header-menu-ico {
+  width: 28px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.header-center .header-search input.input-search {
+  padding: 10px 40px;
+  border-radius: 50px;
+  width: 430px;
+  border: 1px solid #ededf0;
+  background: #ededf0;
+}
+input.input-search:focus {
+  outline: none;
+}
+input.input-search::placeholder {
+  color: #9696a0;
+  font-size: 16px;
+}
+.header-center .header-search {
+  position: relative;
+}
+.header-search .header-search-ico {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+
+.header-right > a {
+  margin: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.header-right a.ico-cart {
+  position: relative;
+}
+.header-right a.ico-cart i {
+  color: #2264d1;
+  font-size: 24px;
+}
+.badge-cart {
+  position: absolute;
+  top: -12px;
+  right: -4px;
+  background-color: red;
+  color: #ffffff;
+  padding: 1px 6px;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+/* -----------------END-HEADER------------------------- */
