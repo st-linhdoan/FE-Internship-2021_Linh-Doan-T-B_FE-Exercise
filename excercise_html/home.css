@@ -243,3 +243,18 @@ input.input-search::placeholder {
     color: #37833b;
   }
   /* --------------------END-PRODUCT---------------------- */
+  /* --------------------FOOTER-------------------------- */
+.page-footer {
+    padding: 60px 0;
+    background-color: #2264d1;
+    text-align: center;
+    color: #ffffff;
+  }
+  .page-footer > p {
+    padding: 10px 0;
+  }
+  .page-footer > p:nth-child(2) {
+    font-size: 48px;
+    font-weight: 700;
+  }
+  /* --------------------END-FOOTER---------------------- */
