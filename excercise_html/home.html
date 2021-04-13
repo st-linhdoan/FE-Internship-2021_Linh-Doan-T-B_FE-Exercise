@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>EXCERCISE HTML</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <div class="header-section">
+          <div class="header-left">
+            <img class="header-logo-img" src="image/img/Logo.png" alt="Shopka">
+          </div>
+          <div class="header-center">
+            <div class="header-menu">
+              <img class="header-menu-ico" src="image/svg/menu.svg" alt="Icon Bar">
+              <ul class="menu-list">
+                <li><a href="#">Clothing & Shoes</a></li>
+                <li><a href="#">Entertaiment</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#"> Sport & Lifestyle</a></li>
+                <li><a href="#">Pets</a></li>
+                <li><a href="#">Kitchen Accessories</a></li>
+              </ul>
+            </div>
+            <div class="header-search">
+              <input
+                name="search"
+                type="text"
+                value=""
+                placeholder="Search"
+                class="input-search"
+              />
+              <img class="header-search-ico" src="image/svg/search.svg" alt="Header icon">
+            </div>
+          </div>
+          <div class="header-right">
+            <a href="#" class="ico-cart">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <span class="badge badge-cart">1</span>
+            </a>
+            <a href="#" class="btn btn-secondary">Sign In</a>
+            <a href="#" class="btn btn-primary">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <section class="section section-banner">
+        <img class="banner-img" src="image/img/banner.png" alt="Banner sale">
+      </section>
+      <section class="section section-products">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <span class="select-one">
+              <span class="badge badge-sort">SORT BY</span>
+              <select name="useless-first" class="select select-use">
+                <option value="useless-first">Useless First</option>
+                <option value="useless-first">Useless First</option>
+                <option value="useless-first">Useless First</option>
+              </select>
+            </span>
+            <select name="condition" class="select select-condition">
+              <option value="condition">Condition</option>
+              <option value="condition">Condition</option>
+              <option value="condition">Condition</option>
+            </select>
+            <select name="delievery-options" class="select select-delivery">
+              <option value="delievery-options">Delievery options</option>
+              <option value="delievery-options">Delievery options</option>
+              <option value="delievery-options">Delievery options</option>
+            </select>
+          </div>
+          <div class="toolbar-right">
+            <div class="toolbar-right-action">
+              <button type="button" name="show-all">Show all</button>
+              <button type="button" name="action" class="active">Action</button>
+              <button type="button" name="buy-now">Buy now</button>
+            </div>
+            <div class="toolbar-right-sort">
+              <button type="button" name="sort-list">
+                <i class="fa fa-th-list" aria-hidden="true"></i>
+              </button>
+              <button type="button" name="sort-grid" class="active">
+                <i class="fa fa-th-large" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <ul class="product-list">
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-1.png" alt="Product 1">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Vintage Typewriter to post awesome stories about UI design
+                    and webdev.
+                  </h4>
+                  <span class="product-price">$49.50</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-2.png" alt="Product 2">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Lee Pucker design. Leather botinki for handsome designers.
+                    Free shipping.
+                  </h4>
+                  <span class="product-price">$13.95</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-3.png" alt="Product 3">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Timesaving kitten to save months on development. Playful,
+                    cute, cheap!
+                  </h4>
+                  <span class="product-price">$128.99</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-4.png" alt="Product 4">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Plastic useless plugs and tubes for high-fidelity
+                    prototyping. Fit & Eat!
+                  </h4>
+                  <span class="product-price">
+                    $12.48
+                    <span class="badge-sale">50% OFF</span>
+                  </span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-5.png" alt="Product 5">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Creativity stimulating lotion. Drink every morning to
+                    generate better ideas!
+                  </h4>
+                  <span class="product-price">$12.48</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-6.png" alt="Product 6">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Prototyping items to create a lot if useless things...
+                  </h4>
+                  <span class="product-price">$128.99</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/svg/image-7.svg" alt="Product 7">
+                <div class="product-info">
+                  <h4 class="product-name">John Von Ebalkin SPRING</h4>
+                  <span class="product-price">$13.95</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/svg/image-8.svg" alt="Product 8">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Envelope, Stripes, Pencil and etc. Purchase this kit today
+                    and feel OKAY
+                  </h4>
+                  <span class="product-price">$9.50</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/svg/image-9.svg" alt="Product 9">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Professional teadrinking set for every designer and
+                    developer
+                  </h4>
+                  <span class="product-price">$128.99</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/svg/image-10.svg" alt="Product 10">
+                <div class="product-info">
+                  <h4 class="product-name">One string Bonsai description</h4>
+                  <span class="product-price">$11.68</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/svg/image-11.svg" alt="Product 11">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    Simply best item in town to shine bright with your Nine Inch
+                    Nails
+                  </h4>
+                  <span class="product-price">
+                    $1.25
+                    <span class="badge-deal"> Cool deal</span>
+                  </span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+            <li class="product-item">
+              <a href="#">
+                <img src="image/img/image-12.png" alt="Product 12">
+                <div class="product-info">
+                  <h4 class="product-name">
+                    KISTOCHKI & KRASIBO. Top cosmetics brand from Chelyabinsk is
+                    here!
+                  </h4>
+                  <span class="product-price">$23.25</span>
+                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <button type="button" class="btn btn-secondary">
+                    Add to cart
+                  </button>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>Are you ready?</p>
+      <p>Let’s get started</p>
+      <p>Copyright &copy; 2020. LogoIpsum. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
