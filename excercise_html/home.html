@@ -77,9 +77,21 @@
           </div>
           <div class="toolbar-right">
             <div class="toolbar-right-action">
-              <button type="button" name="show-all">Show all</button>
+              <!-- <button type="button" name="show-all">Show all</button>
               <button type="button" name="action" class="active">Action</button>
-              <button type="button" name="buy-now">Buy now</button>
+              <button type="button" name="buy-now">Buy now</button> -->
+              <div class="">
+                <label>Show all</label>
+                <input type="radio" />
+              </div>
+              <div class="">
+                <label>Action</label>
+                <input type="radio" />
+              </div>
+              <div class="">
+                <label>Buy now</label>
+                <input type="radio" />
+              </div>
             </div>
             <div class="toolbar-right-sort">
               <button type="button" name="sort-list">
@@ -91,39 +103,51 @@
             </div>
           </div>
         </div>
-        <div class="product">
+        <div class="page-container">
           <ul class="product-list">
             <li class="product-item">
-              <a href="#">
-                <img src="image/img/image-1.png" alt="Product 1">
+              <div class="product">
+                <div class="product-img">
+                  <a href="#"><img src="image/img/image-1.png" alt="Product 1"></a>
+                </div>
                 <div class="product-info">
-                  <h4 class="product-name">
-                    Vintage Typewriter to post awesome stories about UI design
-                    and webdev.
-                  </h4>
-                  <span class="product-price">$49.50</span>
-                  <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                  <a href="#">
+                    <h4 class="product-name">
+                      Vintage Typewriter to post awesome stories about UI design
+                      and webdev.
+                    </h4>
+                  </a>
+                  <p class="product-price">$49.50</p>
+                  <p class="product-desc">Eligible for Shipping To Mars or somewhere else</p>
+                </div>
+                <div class="group-btn-action">
                   <button type="button" class="btn btn-secondary btn-add-cart">
                     Add to cart
                   </button>
                 </div>
-              </a>
+              </div>
             </li>
             <li class="product-item">
-              <a href="#">
-                <img src="image/img/image-2.png" alt="Product 2">
+              <div class="product">
+                <div class="product-img">
+                  <a href="#"><img src="image/img/image-2.png" alt="Product 2"></a>
+                </div>
                 <div class="product-info">
-                  <h4 class="product-name">
-                    Lee Pucker design. Leather botinki for handsome designers.
-                    Free shipping.
-                  </h4>
+                  <a href="#">
+                    <h4 class="product-name">
+                      Lee Pucker design. Leather botinki for handsome designers.
+                      Free shipping.
+                    </h4>
+                  </a>
                   <span class="product-price">$13.95</span>
                   <span class="product-desc">Eligible for Shipping To Mars or somewhere else</span>
+                </div>
+                <div class="group-btn-action">
                   <button type="button" class="btn btn-secondary btn-add-cart">
                     Add to cart
                   </button>
                 </div>
-              </a>
+              </div>
             </li>
             <li class="product-item">
               <a href="#">
