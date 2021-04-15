@@ -281,10 +281,10 @@ ol, ul {
   color: #37833b;
   background: #ecf7ed;
 }
-.badge-red::after{
+.badge.badge-red::after{
   content: 'Cool deal';
 }
-.badge-green::after{
+.badge.badge-green::after{
   content: '50% OFF';
 }
 .badge{
