@@ -1,0 +1,48 @@
+@import 'font';
+@import 'color';
+.container{
+  max-width: 1150px;
+  width: 100%;
+  margin: 0 auto;
+}
+a{
+  text-decoration: none;
+  color: $color-text;
+}
+.btn {
+  font-family: $fontPopin;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  padding: 14px 18px;
+  color: $color-text;
+  border-radius: 33px;
+  &.btn-white{
+    background-color: $color-white;
+  }
+  &.btn-orange{
+    background-color: $color-orange;
+    color: $color-text;
+    border:none;
+    padding: 14px 30px;
+  }
+}
+.badge{
+  padding: 6px 0px;
+  border-radius: 20px;
+  width: 60px;
+  color: $color-white;
+  text-align: center;
+  &.badge-sale{
+    background-color: $color-red;
+  }
+}
+.title{ 
+  font-family: $fontPopin;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 48px;
+  color: $color-text;
+}

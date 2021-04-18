@@ -1,0 +1,32 @@
+.reasons{
+  background-color: $color-bg;
+  padding: 48px 0;
+  .list-reasons{
+    @extend .flexBetween;
+    flex-wrap: wrap;
+    .reason-item{
+      width: calc((100%-15px)/4);
+    }
+  }
+}
+.reason{
+  .item-content{
+    width: 243px;
+      p{
+        &:first-child{
+          padding: 46px 0 16px 0;
+          font-family: $fontPopin;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        &:last-child{
+          font-family: $fontPopin;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: $color-grey;
+        }
+      }
+  }
+}

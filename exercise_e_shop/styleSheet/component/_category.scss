@@ -1,0 +1,39 @@
+.categorys{
+  padding: 40px 0;
+  .list-category{
+    @extend .flexBetween;
+  }
+}
+.category-container{
+  position: relative;
+  .category-info{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    width: calc(200%/3);
+    margin-left: 40px;
+    .category-name{
+      font-family: $fontPopin;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 50px;
+      color: $color-white;  
+    }
+  }
+  .badge-sale{
+    position: absolute;
+    top: 20%;
+    left: 40px;
+    z-index: 99;
+  }
+  .category-img{
+    position: relative;
+    .overlay{
+      @extend .overlay;
+      background: $color-text;
+      opacity: 0.5;
+    }
+  }
+}
+

@@ -1,0 +1,36 @@
+@import '../base/all';
+
+.page-header{
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 48px 0;
+  .header-content{
+    @extend .flexBetween;
+  }
+}
+.header-center {
+  ul.menu-list li{
+    display: inline-block;
+    padding: 0 30px;
+    a {
+      color: $color-orange;
+      font-family: $fontPopin;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+}
+.header-right{
+  .ico-user{
+      padding: 0 20px;
+  }
+  .ico-user:last-child{
+    padding-right: 0;
+  }
+  .btn-outline{
+    border: none;
+    background: none;
+  }
+}
