@@ -23,9 +23,9 @@
       width: 100%;
     }
   }
+
   .product-info{
     padding: 15px 0;
-    font-family: $fontPopin;
     .product-name{
       a{
         font-weight: 300;
@@ -36,21 +36,30 @@
     .product-price{
       font-weight: 400;
       font-size: 20px;
-      line-height: 30px;
-      &.sale{
-        color: $color-red;
-      }
-      .product-cost{
-        float: right;
-        color: $color-cost;
-      }
     }
   }
-  .badge-sale{
+  .badge-discount{
     position: absolute;
     top:30px;
     left: 27px;
     z-index: 10;
+    background-color: $color-red;
+    display: none;
+  }
+}
+.product-discount{
+  .badge-discount{
+    display: block;
+  }
+  .product-price-discount{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: $color-red;
+  }
+  .product-price{
+    float: right;
+    color: $color-cost;
   }
 }
 .products-today{

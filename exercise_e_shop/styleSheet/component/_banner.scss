@@ -3,10 +3,12 @@
   position: relative;
   .banner-img{
     position: relative;
+    line-height: 0;
     img.banner-head{
       width: 100%;
     }
-    .over-lay{
+    &::before{
+      content: "";
       @extend .overlay;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
     }
@@ -18,7 +20,6 @@
     z-index: 999;
     color: $color-white;
     h2{
-      font-family: $fontPopin;
       font-weight: bold;
       font-size: 72px;
       line-height: 101.5%;
@@ -32,7 +33,6 @@
       align-items: center;
       .link-name{
         padding-left: 10px;
-        font-family: $fontPopin;
         font-size: 24px;
         line-height: 36px;
         color: $color-white;
@@ -48,7 +48,6 @@
     color: $color-white;
     background: $color-white;
     border-top-right-radius:70px ;
-    
   }
   .list-benifits{
     padding-left: 220px;

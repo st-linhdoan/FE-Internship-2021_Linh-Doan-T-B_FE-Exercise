@@ -6,6 +6,7 @@
 }
 .category-container{
   position: relative;
+  line-height: 0;
   .category-info{
     position: absolute;
     top: 50%;
@@ -14,7 +15,6 @@
     width: calc(200%/3);
     margin-left: 40px;
     .category-name{
-      font-family: $fontPopin;
       font-size: 24px;
       line-height: 36px;
       margin-bottom: 50px;
@@ -26,10 +26,12 @@
     top: 20%;
     left: 40px;
     z-index: 99;
+    line-height: 1;
   }
   .category-img{
     position: relative;
-    .overlay{
+    &::before{
+      content: "";
       @extend .overlay;
       background: $color-text;
       opacity: 0.5;

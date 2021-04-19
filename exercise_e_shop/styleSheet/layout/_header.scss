@@ -10,27 +10,27 @@
   }
 }
 .header-center {
-  ul.menu-list li{
-    display: inline-block;
-    padding: 0 30px;
-    a {
-      color: $color-orange;
-      font-family: $fontPopin;
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 27px;
+  ul.nav-list{
+    li.nav-item{
+      display: inline-block;
+      padding: 0 30px;
+      a.nav-link {
+        color: $color-orange;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 27px;
+      }
     }
   }
 }
 .header-right{
-  .ico-user{
-      padding: 0 20px;
+  ul.options-list{
+    li.options-item{
+      display: inline-block;
+      padding: 0 15px;
+      &:last-child{
+        padding-right: 0;
+      }
+    }
   }
-  .ico-user:last-child{
-    padding-right: 0;
-  }
-  .btn-outline{
-    border: none;
-    background: none;
-  }
-}
+} 
