@@ -1,0 +1,10 @@
+.badge{
+  padding: 6px 0px;
+  border-radius: 20px;
+  width: 60px;
+  color: $color-white;
+  text-align: center;
+  &.badge-sale{
+    background-color: $color-red;
+  }
+}
