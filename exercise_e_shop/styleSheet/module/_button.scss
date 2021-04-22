@@ -16,3 +16,10 @@
     padding: 14px 30px;
   }
 }
+@include respon(sm){
+  .btn{
+    font-size: 10px;
+    line-height: 15px;
+    padding: 4px 9px;
+  }
+}

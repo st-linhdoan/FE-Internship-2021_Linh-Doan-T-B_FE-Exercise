@@ -31,6 +31,44 @@
       &:last-child{
         padding-right: 0;
       }
+      &:nth-child(3){
+        padding-right:0 ;
+      }
     }
   }
+  .ico-bar{
+    display: none;
+  }
 } 
+@include respon(sm){
+  .page-header{
+    padding: 20px 0;
+    background-color: $color-white;
+    .header-left{
+      img{
+        content:url('../asset/icon/logomobile.svg')
+      }
+    }
+    .header-center{
+      display: none;
+    }
+    .header-right{
+      ul.options-list{
+        li.options-item{
+          &.search{
+            display: none;
+          }
+        }
+      }
+      .ico-cart{
+        content: url('../asset/icon/cartmobile.svg');
+      }
+      .ico-user{
+        content: url('../asset/icon/usermobile.svg');
+      }
+      .ico-bar{
+        display: block;
+      }
+    }
+  }
+}
