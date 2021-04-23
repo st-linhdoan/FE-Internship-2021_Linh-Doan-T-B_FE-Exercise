@@ -33,6 +33,7 @@
       .link-name {
         padding-left: 10px;
         font-size: 24px;
+        font-weight: 700;
         line-height: 36px;
         color: $color-white;
         text-decoration-line: underline;
@@ -64,17 +65,16 @@
     display: flex;
     .benifit-content {
       .benifit-name{
-          font-weight: bold;
-          font-size: 14px;
-          line-height: 21px;
-          color: $color-text;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px;
+        color: $color-text;
       }
       .benifit-desc{
-          font-size: 12px;
-          line-height: 18px;
-          color: $color-text-small;
-        }
-       
+        font-size: 12px;
+        line-height: 18px;
+        color: $color-text-small;
+      }
     } 
   }
 }
@@ -338,6 +338,11 @@
     .product-price-discount{
       font-size: 10px;
       line-height: 15px;
+    }
+  }
+  .products-today{
+    .title{
+      text-align: start;
     }
   }
   .reasons {

@@ -504,6 +504,7 @@ a {
 .banner .banner-title .btn-group .link-name {
   padding-left: 10px;
   font-size: 24px;
+  font-weight: 700;
   line-height: 36px;
   color: #FFFFFF;
   text-decoration-line: underline;
@@ -780,6 +781,10 @@ a {
   .product-discount .product-price-discount {
     font-size: 10px;
     line-height: 15px;
+  }
+
+  .products-today .title {
+    text-align: start;
   }
 
   .reasons {
