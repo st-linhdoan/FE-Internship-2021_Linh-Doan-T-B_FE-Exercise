@@ -382,8 +382,7 @@ a {
   }
 
   .list-content .item-link {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 12px;
   }
 }
 .text-center {
@@ -422,6 +421,7 @@ a {
     font-size: 8px;
     line-height: 12px;
     width: 32px;
+    padding: 4px 2px;
   }
 }
 .btn {
@@ -518,7 +518,7 @@ a {
   border-top-right-radius: 70px;
 }
 .banner .list-benifits {
-  padding-left: 220px;
+  padding-left: 240px;
   padding-right: 50px;
 }
 .banner .list-benifits .benifit-item {
@@ -588,7 +588,6 @@ a {
   position: absolute;
   right: 8%;
   top: 8%;
-  border: 1px solid #C4C4C4;
 }
 
 .product-list {

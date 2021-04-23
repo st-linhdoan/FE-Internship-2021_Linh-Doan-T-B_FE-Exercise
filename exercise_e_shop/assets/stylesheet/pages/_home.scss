@@ -49,7 +49,7 @@
     border-top-right-radius:70px ;
   }
   .list-benifits {
-    padding-left: 220px;
+    padding-left: 240px;
     padding-right: 50px;
     @extend %flex-between;
     .benifit-item {
@@ -125,7 +125,6 @@
     position: absolute;
     right: 8%;
     top: 8%;
-    border: 1px solid #C4C4C4;
   }
 }
 .product-list {
