@@ -26,11 +26,11 @@
     li.options-item{
       display: inline-block;
       padding: 0 15px;
-      &:last-child {
-        padding-right: 0;
+      &.menu-bar{
+        padding: 0;
       }
-      &:nth-child(3) {
-        padding-right:0 ;
+      &:nth-child(3){
+        padding-right: 0;
       }
     }
   }
@@ -55,6 +55,12 @@
         li.options-item {
           &.search{
             display: none;
+          }
+          &.menu-bar{
+            padding-right: 0;
+          }
+          &:nth-child(3){
+            padding-right: 15px;
           }
         }
       }

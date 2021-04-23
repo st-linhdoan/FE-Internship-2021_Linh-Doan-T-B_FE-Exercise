@@ -238,6 +238,10 @@ ol, ul {
   .container, .container-sm {
     max-width: 327px;
   }
+
+  .row {
+    margin: 0 -4px;
+  }
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -269,8 +273,8 @@ a {
   display: inline-block;
   padding: 0 15px;
 }
-.header-right ul.options-list li.options-item:last-child {
-  padding-right: 0;
+.header-right ul.options-list li.options-item.menu-bar {
+  padding: 0;
 }
 .header-right ul.options-list li.options-item:nth-child(3) {
   padding-right: 0;
@@ -292,6 +296,12 @@ a {
   }
   .page-header .header-right ul.options-list li.options-item.search {
     display: none;
+  }
+  .page-header .header-right ul.options-list li.options-item.menu-bar {
+    padding-right: 0;
+  }
+  .page-header .header-right ul.options-list li.options-item:nth-child(3) {
+    padding-right: 15px;
   }
   .page-header .header-right .ico-cart {
     content: url("../asset/icon/cartmobile.svg");
@@ -396,6 +406,10 @@ a {
   text-align: start;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .badge {
   padding: 6px 0px;
   border-radius: 20px;
@@ -403,7 +417,7 @@ a {
   color: #FFFFFF;
   text-align: center;
 }
-.badge.badge-sale {
+.badge.badge-hightlight {
   background-color: #FF0000;
 }
 
@@ -423,10 +437,10 @@ a {
   color: #333333;
   border-radius: 33px;
 }
-.btn.btn-white {
+.btn.btn-primary {
   background-color: #FFFFFF;
 }
-.btn.btn-orange {
+.btn.btn-secondary {
   background-color: #FBB03B;
   color: #333333;
   border: none;
@@ -484,11 +498,11 @@ a {
 .banner .banner-title h1 .text-color {
   color: #FBB03B;
 }
-.banner .banner-title .shop-now {
+.banner .banner-title .btn-group {
   display: flex;
   align-items: center;
 }
-.banner .banner-title .shop-now .link-name {
+.banner .banner-title .btn-group .link-name {
   padding-left: 10px;
   font-size: 24px;
   line-height: 36px;
@@ -518,13 +532,13 @@ a {
   padding: 30px 0;
   display: flex;
 }
-.banner .benifit .benifit-content p:first-child {
+.banner .benifit .benifit-content .benifit-name {
   font-weight: bold;
   font-size: 14px;
   line-height: 21px;
   color: #333333;
 }
-.banner .benifit .benifit-content p:last-child {
+.banner .benifit .benifit-content .benifit-desc {
   font-size: 12px;
   line-height: 18px;
   color: #A8A8A8;
@@ -551,7 +565,7 @@ a {
   margin-bottom: 50px;
   color: #FFFFFF;
 }
-.category-container .badge-sale {
+.category-container .badge-hightlight {
   position: absolute;
   top: 20%;
   left: 40px;
@@ -714,7 +728,7 @@ a {
   .banner .banner-title h1 {
     font-size: 48px;
   }
-  .banner .banner-title .shop-now .link-name {
+  .banner .banner-title .btn-group .link-name {
     font-size: 14px;
     line-height: 21px;
   }
@@ -727,7 +741,7 @@ a {
     padding-top: 10px;
   }
 
-  .category-container .badge-sale {
+  .category-container .badge-hightlight {
     left: 14px;
     top: 45%;
   }
@@ -815,7 +829,7 @@ a {
     margin-bottom: 15px;
     margin-right: 0;
   }
-  .letter .letter-container .letter-form .btn-orange {
+  .letter .letter-container .letter-form .btn-secondary {
     padding: 7px 19px;
   }
 }

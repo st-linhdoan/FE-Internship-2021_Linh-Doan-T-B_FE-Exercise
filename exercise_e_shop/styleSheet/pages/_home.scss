@@ -27,7 +27,7 @@
         color: $color-orange;
       }
     }
-    .shop-now {
+    .btn-group {
       display: flex;
       align-items: center;
       .link-name {
@@ -63,19 +63,18 @@
     padding: 30px 0;
     display: flex;
     .benifit-content {
-      p {
-        &:first-child {
+      .benifit-name{
           font-weight: bold;
           font-size: 14px;
           line-height: 21px;
           color: $color-text;
-        }
-        &:last-child {
+      }
+      .benifit-desc{
           font-size: 12px;
           line-height: 18px;
           color: $color-text-small;
         }
-      }  
+       
     } 
   }
 }
@@ -102,7 +101,7 @@
       color: $color-white;  
     }
   }
-  .badge-sale {
+  .badge-hightlight {
     position: absolute;
     top: 20%;
     left: 40px;
@@ -275,7 +274,7 @@
       h1 {
         font-size: 48px;
       }   
-      .shop-now {
+      .btn-group {
         .link-name {
           font-size: 14px;
           line-height: 21px;
@@ -294,7 +293,7 @@
     }
   }
   .category-container {
-    .badge-sale {
+    .badge-hightlight {
       left: 14px;
       top:45%;
     }
@@ -391,7 +390,7 @@
           margin-bottom: 15px;
           margin-right: 0;
         }
-        .btn-orange {
+        .btn-secondary {
           padding: 7px 19px;
         }
       }
