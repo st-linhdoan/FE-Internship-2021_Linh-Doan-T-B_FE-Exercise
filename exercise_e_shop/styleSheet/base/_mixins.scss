@@ -1,0 +1,30 @@
+
+@mixin columns ($colMax) {
+  @for $i from 1 through $colMax {
+    .col-#{$i}{
+      width: (($i/$colMax)*100%);
+      padding:0 10px;
+    }
+  }
+}
+@mixin columnsResponsive($colMax, $size, $breakpoint) {
+  @media (max-width:$breakpoint){
+    @for $i from 1 through $colMax {
+      .col-#{$size}-#{$i}{
+          width: percentage($i/$colMax);
+          padding:0 4px;
+      }
+    }
+  }
+}
+@mixin respon($breakpoint) {
+  @if($breakpoint == sm){
+    @media (max-width: $sm){ @content};
+  }
+  @if($breakpoint == md){
+    @media (max-width: $md){ @content}
+  }
+}
+
+
+

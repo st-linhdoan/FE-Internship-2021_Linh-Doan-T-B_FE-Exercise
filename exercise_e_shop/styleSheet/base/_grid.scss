@@ -1,0 +1,27 @@
+.container {
+  max-width: 1152px;
+  width: 100%;
+  margin: 0 auto;
+}
+.row {
+  margin: 0 -10px; 
+  flex-wrap: wrap;
+}
+.row > * {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+@include columns($colMax);
+@include columnsResponsive($colMax, sm,$sm);
+@include columnsResponsive($colMax,md,$md);
+
+@media (max-width: 576px) {
+  .container, .container-sm {
+    max-width: 327px;
+  }
+  .row{
+    margin: 0 -4px;
+  }
+}
