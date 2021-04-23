@@ -20,28 +20,13 @@ ol, ul {
   list-style: none;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: #333333;
-}
-
-.flexBetween, .letter-container, .reasons .list-reasons, .product-list, .categorys .list-category, .banner .list-benifits, .page-footer .footer-information, .page-header .header-content {
+.letter-container, .reasons .list-reasons, .product-list, .categorys .list-category, .banner .list-benifits, .page-footer .footer-information, .page-header .header-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.flexAround {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.overlay, .letter .letter-img::before, .category-container .category-img::before, .banner .banner-img::before {
+.letter .letter-img::before, .category-container .category-img::before, .banner .banner-img::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -255,6 +240,15 @@ a {
     max-width: 327px;
   }
 }
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
 .page-header {
   position: fixed;
   width: 100%;
@@ -333,6 +327,7 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
 .footer-left p {
   padding: 20px 0;
   width: 373px;

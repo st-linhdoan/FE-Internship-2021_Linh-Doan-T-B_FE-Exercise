@@ -6,18 +6,18 @@
   padding: 14px 18px;
   color: $color-text;
   border-radius: 33px;
-  &.btn-white{
+  &.btn-white {
     background-color: $color-white;
   }
-  &.btn-orange{
+  &.btn-orange {
     background-color: $color-orange;
     color: $color-text;
     border:none;
     padding: 14px 30px;
   }
 }
-@include respon(sm){
-  .btn{
+@include respon(sm) {
+  .btn {
     font-size: 10px;
     line-height: 15px;
     padding: 4px 9px;

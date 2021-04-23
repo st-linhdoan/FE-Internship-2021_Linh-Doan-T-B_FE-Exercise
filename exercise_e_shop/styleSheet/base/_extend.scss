@@ -1,14 +1,14 @@
-.flexBetween{
+%flex-between {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.flexAround {
+%flex-around {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.overlay{
+%over-lay {
   position: absolute;
   top: 0;
   left: 0;

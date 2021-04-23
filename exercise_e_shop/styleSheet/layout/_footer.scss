@@ -1,11 +1,11 @@
-.page-footer{
+.page-footer {
   background-color: $color-orange;
   padding-top: 45px;
-  .footer-information{
-    @extend .flexBetween;
+  .footer-information {
+    @extend %flex-between;
     padding-bottom: 40px;
   }
-  .footer-bottom{
+  .footer-bottom {
     padding: 30px 0;
     font-weight: 400;
     color: $color-white;
@@ -14,52 +14,45 @@
     border-top: 1px solid $color-white;
   }
 }
-.footer-information{
-  .footer-left{
-    // width: 50%;
-  }
+.footer-information {
   .footer-right{
-    // width: 50%;
     text-align: start;
     .list-info{
       display: flex;
       justify-content: space-between;
-      .info-item{
-        // width: calc((100%-80px)/3);
-      }
     }
   }
 }
-.footer-left{
-  p{
+.footer-left {
+  p {
     padding: 20px 0;
     width: 373px;
     color: $color-white;
     font-size: 14px;
     line-height: 21px; 
   }
-  .ico-social{
+  .ico-social {
     padding-top: 20px;
-    .ico-item{
+    .ico-item {
       display: inline-block;
       padding-right: 30px;
     }
   }
 }
-.list-content{
+.list-content {
   .item-link {
     padding: 7px 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
     color: $color-white;
-    a{
+    a {
       color: $color-white;
     }
   }
 }
-.info-item{
-  .title-list{
+.info-item {
+  .title-list {
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
@@ -67,24 +60,24 @@
     padding-bottom: 7px;
   }
 }
-@include respon(sm){
-  .footer-left{
-    p{
+@include respon(sm) {
+  .footer-left {
+    p {
       width: 327px;
       font-size: 14px;
       line-height: 21px;
     }
-    ul.ico-social{
+    ul.ico-social {
       display: none;
     }
   }
-  .list-info{
-    .info-item{
+  .list-info {
+    .info-item {
       padding-top: 20px;
     }
   }
-  .list-content{
-    .item-link{
+  .list-content {
+    .item-link {
       font-size: 16px;
       line-height: 24px;
     }
