@@ -1,0 +1,13 @@
+.title { 
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 48px;
+  color: $color-text;
+}
+@include respon(sm) {
+  .title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}

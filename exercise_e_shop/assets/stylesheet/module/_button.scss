@@ -1,0 +1,28 @@
+.btn {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  padding: 14px 18px;
+  color: $color-text;
+  border-radius: 33px;
+  &.btn-primary {
+    background-color: $color-white;
+  }
+  &.btn-outline{
+    border: 1px solid rgb(196, 196, 196);
+  }
+  &.btn-orange {
+    background-color: $color-orange;
+    color: $color-text;
+    border:none;
+    padding: 14px 30px;
+  }
+}
+@include respon(sm) {
+  .btn {
+    font-size: 10px;
+    line-height: 15px;
+    padding: 4px 9px;
+  }
+}
