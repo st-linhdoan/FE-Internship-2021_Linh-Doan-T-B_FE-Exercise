@@ -583,12 +583,14 @@ a {
 
 .products {
   padding: 40px 0;
+}
+.products .product-content {
   position: relative;
 }
-.products .fix-position {
+.products .product-content .fix-position {
   position: absolute;
-  right: 8%;
-  top: 8%;
+  right: 0;
+  top: 0;
 }
 
 .product-list {
@@ -757,8 +759,8 @@ a {
   .products {
     padding: 0;
   }
-  .products .fix-position {
-    right: 24px;
+  .products .product-content .fix-position {
+    right: 0;
     top: 0;
   }
   .products .btn {

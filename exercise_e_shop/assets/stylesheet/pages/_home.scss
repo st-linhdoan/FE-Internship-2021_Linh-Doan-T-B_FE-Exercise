@@ -120,11 +120,13 @@
 }
 .products {
   padding: 40px 0; 
-  position: relative;
-  .fix-position {
-    position: absolute;
-    right: 8%;
-    top: 8%;
+  .product-content{
+    position: relative;
+    .fix-position {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 }
 .product-list {
@@ -308,9 +310,11 @@
   }
   .products {
     padding:0;
-    .fix-position {
-      right: 24px;
-      top: 0;
+    .product-content{
+      .fix-position {
+        right: 0;
+        top: 0;
+      }
     }
     .btn {
       border: none;
