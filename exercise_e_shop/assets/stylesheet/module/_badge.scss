@@ -8,7 +8,7 @@
     background-color: $color-red;
   }
 }
-@include respon(sm) {
+@include responsiveMedia(sm) {
   .badge{
     font-size: 8px;
     line-height: 12px;

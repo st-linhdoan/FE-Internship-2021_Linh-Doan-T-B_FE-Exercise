@@ -254,25 +254,25 @@ a {
   z-index: 999;
   padding: 48px 0;
 }
-.header-center ul.nav-list li.nav-item {
+.header-center .nav-list .nav-item {
   display: inline-block;
   padding: 0 30px;
 }
-.header-center ul.nav-list li.nav-item a.nav-link {
+.header-center .nav-list .nav-item .nav-link {
   color: #FBB03B;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
 }
 
-.header-right ul.options-list li.options-item {
+.header-right .options-list .options-item {
   display: inline-block;
   padding: 0 15px;
 }
-.header-right ul.options-list li.options-item.menu-bar {
+.header-right .options-list .options-item.menu-bar {
   padding: 0;
 }
-.header-right ul.options-list li.options-item:nth-child(3) {
+.header-right .options-list .options-item:nth-child(3) {
   padding-right: 0;
 }
 .header-right .ico-bar {
@@ -290,13 +290,13 @@ a {
   .page-header .header-center {
     display: none;
   }
-  .page-header .header-right ul.options-list li.options-item.search {
+  .page-header .header-right .options-list .options-item.search {
     display: none;
   }
-  .page-header .header-right ul.options-list li.options-item.menu-bar {
+  .page-header .header-right .options-list .options-item.menu-bar {
     padding-right: 0;
   }
-  .page-header .header-right ul.options-list li.options-item:nth-child(3) {
+  .page-header .header-right .options-list .options-item:nth-child(3) {
     padding-right: 15px;
   }
   .page-header .header-right .ico-cart {
@@ -324,42 +324,38 @@ a {
   line-height: 18px;
   border-top: 1px solid #FFFFFF;
 }
-
-.footer-information .footer-right {
+.page-footer .footer-right {
   text-align: start;
 }
-.footer-information .footer-right .list-info {
+.page-footer .footer-right .list-info {
   display: flex;
   justify-content: space-between;
 }
-
-.footer-left p {
+.page-footer .footer-left p {
   padding: 20px 0;
   width: 373px;
   color: #FFFFFF;
   font-size: 14px;
   line-height: 21px;
 }
-.footer-left .ico-social {
+.page-footer .footer-left .ico-social {
   padding-top: 20px;
 }
-.footer-left .ico-social .ico-item {
+.page-footer .footer-left .ico-social .ico-item {
   display: inline-block;
   padding-right: 30px;
 }
-
-.list-content .item-link {
+.page-footer .item-link {
   padding: 7px 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
   color: #FFFFFF;
 }
-.list-content .item-link a {
+.page-footer .item-link a {
   color: #FFFFFF;
 }
-
-.info-item .title-list {
+.page-footer .info-item .title-list {
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -373,7 +369,7 @@ a {
     font-size: 14px;
     line-height: 21px;
   }
-  .footer-left ul.ico-social {
+  .footer-left .ico-social {
     display: none;
   }
 

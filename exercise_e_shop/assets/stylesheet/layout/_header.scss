@@ -8,11 +8,11 @@
   }
 }
 .header-center {
-  ul.nav-list {
-    li.nav-item {
+  .nav-list {
+    .nav-item {
       display: inline-block;
       padding: 0 30px;
-      a.nav-link {
+      .nav-link {
         color: $color-orange;
         font-weight: 700;
         font-size: 18px;
@@ -22,8 +22,8 @@
   }
 }
 .header-right {
-  ul.options-list {
-    li.options-item{
+  .options-list {
+    .options-item{
       display: inline-block;
       padding: 0 15px;
       &.menu-bar{
@@ -38,7 +38,7 @@
     display: none;
   }
 } 
-@include respon(sm) {
+@include responsiveMedia(sm) {
   .page-header {
     padding: 20px 0;
     background-color: $color-white;
@@ -51,8 +51,8 @@
       display: none;
     }
     .header-right {
-      ul.options-list {
-        li.options-item {
+      .options-list {
+        .options-item {
           &.search{
             display: none;
           }

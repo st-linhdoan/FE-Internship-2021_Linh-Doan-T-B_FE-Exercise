@@ -5,7 +5,7 @@
   line-height: 48px;
   color: $color-text;
 }
-@include respon(sm) {
+@include responsiveMedia(sm) {
   .title {
     font-size: 18px;
     line-height: 27px;

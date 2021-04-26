@@ -19,7 +19,7 @@
     padding: 14px 30px;
   }
 }
-@include respon(sm) {
+@include responsiveMedia(sm) {
   .btn {
     font-size: 10px;
     line-height: 15px;

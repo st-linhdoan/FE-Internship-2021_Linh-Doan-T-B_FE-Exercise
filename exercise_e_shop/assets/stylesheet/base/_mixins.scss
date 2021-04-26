@@ -1,28 +1,28 @@
 
-@mixin columns ($colMax) {
-  @for $i from 1 through $colMax {
+@mixin columns ($col-max) {
+  @for $i from 1 through $col-max {
     .col-#{$i}{
-      width: (($i/$colMax)*100%);
+      width: (($i/$col-max)*100%);
       padding:0 10px;
     }
   }
 }
-@mixin columnsResponsive($colMax, $size, $breakpoint) {
+@mixin columnsResponsive($col-max, $size, $breakpoint) {
   @media (max-width:$breakpoint){
-    @for $i from 1 through $colMax {
+    @for $i from 1 through $col-max {
       .col-#{$size}-#{$i}{
-          width: percentage($i/$colMax);
+          width: percentage($i/$col-max);
           padding:0 4px;
       }
     }
   }
 }
-@mixin respon($breakpoint) {
+@mixin responsiveMedia($breakpoint) {
   @if($breakpoint == sm){
-    @media (max-width: $sm){ @content};
+    @media (max-width: $breakpoint-sm){ @content};
   }
   @if($breakpoint == md){
-    @media (max-width: $md){ @content}
+    @media (max-width: $breakpoint-md){ @content}
   }
 }
 

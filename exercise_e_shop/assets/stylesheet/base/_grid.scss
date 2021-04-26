@@ -13,9 +13,9 @@
   width: 100%;
   max-width: 100%;
 }
-@include columns($colMax);
-@include columnsResponsive($colMax, sm,$sm);
-@include columnsResponsive($colMax,md,$md);
+@include columns($col-max);
+@include columnsResponsive($col-max, sm,$breakpoint-sm);
+@include columnsResponsive($col-max,md,$breakpoint-md);
 
 @media (max-width: 576px) {
   .container, .container-sm {

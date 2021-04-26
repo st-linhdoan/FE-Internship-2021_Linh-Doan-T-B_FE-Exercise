@@ -259,7 +259,7 @@
     }
   }
 }
-@include respon(sm) {
+@include responsiveMedia(sm) {
   .banner {
     .benifits {
       display: none;
