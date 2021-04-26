@@ -1,0 +1,18 @@
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+%flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+%over-lay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+}
