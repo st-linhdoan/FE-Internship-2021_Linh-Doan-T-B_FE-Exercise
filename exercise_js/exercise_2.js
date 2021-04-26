@@ -8,3 +8,4 @@ function differenceNumber(a){
     }
     return gt;
 }
+

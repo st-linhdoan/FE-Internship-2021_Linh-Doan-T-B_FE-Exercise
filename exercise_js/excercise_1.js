@@ -9,4 +9,4 @@ function sumNumber(a,b){
     }
     return sum;
 }
-console.log(sumNumber(7,5));
+
