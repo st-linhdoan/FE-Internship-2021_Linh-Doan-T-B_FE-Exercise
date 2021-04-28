@@ -1,11 +1,6 @@
-function differenceNumber(a){
-  var gt = 0;
-  if(a > 19){
-    gt = (a - 19)*3;
+function differenceNumber(a) {
+  if (a > 19) {
+    return (a - 19) * 3;
   }
-  else {
-    gt = 19 - a
-  }
-  return gt;
+  return 19 - a;
 }
-

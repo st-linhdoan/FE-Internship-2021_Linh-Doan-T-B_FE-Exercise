@@ -1,10 +1,6 @@
 function sumNumber(a, b) {
-  var sum = 0;
   if (a == b) {
-    sum = (a + b) * 3;
+    return (a + b) * 3;
   }
-  else {
-    sum = a + b;
-  }
-  return sum;
+  return a + b;
 }
