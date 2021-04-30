@@ -1,0 +1,111 @@
+.page-header {
+  background: linear-gradient(
+    180deg
+    , rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);    
+}
+.carts {
+  padding-top: 160px;
+  padding-bottom: 40px;
+  background-color: $color-bg;
+  .carts-container {
+    @extend %flex-between;
+  }
+  .cart-product {
+    background-color: $color-white;
+    padding: 10px 20px;
+    .cart-item {
+      padding: 10px 0;
+    }
+  }
+  .cart-product-inner {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .cart-product-img {
+    width: 100px;
+    margin-right: 20px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .cart-product-content {
+    width: calc(100% - 120px);
+    @extend %flex-between;
+    .content-desc {
+      width: 60%;
+      .cart-product-name {
+        color: $color-text;
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      .action-delete{
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+    .content-detail {
+      display: flex;
+      .cart-price {
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 600;
+        margin-right: 20px;
+      } 
+    }
+  }
+  .cart-qty {
+    display: flex;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 3px;
+      span {
+        color: rgb(153, 153, 153);
+        padding: 6px 12px;
+        cursor: pointer;
+        &.cart-qty-down {
+          border-right: 1px solid rgb(200, 200, 200);
+        }
+        &.cart-qty-up {
+          border-left: 1px solid rgb(200, 200, 200);
+        }
+      }
+    .cart-qty-input {
+      border: none;
+      background: transparent;
+      width: 28px;
+      text-align: center;
+      font-size: 13px;
+      appearance: none;
+      margin: 0px;
+    }
+  }
+  .cart-total-container {
+    .address-user {
+      background:$color-white;
+      padding: 20px;
+      p {
+        line-height: 20px;
+      }
+    }
+  }
+  .cart-total {
+    background-color: $color-white;
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 20px;
+    .total-price {
+      font-weight: 600;
+      float: right;
+    }
+  }
+  .btn-group {
+    width: 100%;
+    margin-top: 10px;
+    .btn {
+      width: 100%;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  }
+}
