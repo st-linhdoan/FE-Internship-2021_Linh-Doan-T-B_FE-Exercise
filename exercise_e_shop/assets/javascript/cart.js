@@ -47,9 +47,16 @@ product.forEach(element => {
   //create elemetn img
   var img = document.createElement("img");
   img.src = element.image;
+  img.alt = element.name;
   a.appendChild(img);
-
-  //create element div3
+// create element button
+  var button = document.createElement("button");
+  button.className = "btn btn-orange btn-add-cart";
+  button.id = element.id;
+  var txtbtn = document.createTextNode("Add to cart");
+  button.appendChild(txtbtn);
+  div2.appendChild(button);
+//create element div3
   var div3 = document.createElement("div");
   div3.className = "product-info";
   div1.appendChild(div3);
@@ -89,4 +96,23 @@ product.forEach(element => {
     div1.appendChild(p);
   }
   document.getElementsByClassName("product-list")[0].appendChild(li);
-});
+  //function add to cart
+  button.addEventListener("click", handleAddToCart);
+})
+function handleAddToCart() {
+  var item = product.find(x => x.id == this.id);
+  var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+  var index = cart.findIndex(x => x.id == this.id);
+  if(index != -1){
+    cart[index].qty += 1;
+  }
+  else{
+    cart.push({
+      ...item,
+      qty: 1
+    });
+  }
+  localStorage.setItem('cart',JSON.stringify(cart));
+  localStorage.setItem("count",JSON.stringify(cart.length));
+}
+document.getElementsByClassName("number-cart")[0].innerHTML = JSON.parse(localStorage.getItem('count'));
