@@ -278,6 +278,19 @@ a {
 .header-right .ico-bar {
   display: none;
 }
+.header-right .cart-group {
+  position: relative;
+}
+.header-right .cart-group .number-cart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 0px 5px;
+  z-index: 99;
+}
 
 @media (max-width: 576px) {
   .page-header {

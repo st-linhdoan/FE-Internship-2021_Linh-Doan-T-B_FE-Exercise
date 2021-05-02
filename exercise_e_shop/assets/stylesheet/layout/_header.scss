@@ -37,6 +37,19 @@
   .ico-bar {
     display: none;
   }
+  .cart-group{
+    position: relative;
+    .number-cart{
+      position: absolute;
+      top: -6px;
+      left: 13px;
+      background-color: #FFFFFF;
+      font-size: 12px;
+      border-radius: 50%;
+      padding: 1px 6px;
+      z-index: 99;
+    }
+  }
 } 
 @include responsiveMedia(sm) {
   .page-header {
