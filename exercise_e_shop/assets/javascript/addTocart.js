@@ -3,32 +3,36 @@
     id: 1,
     name: "T-Shirt Summer Vibes",
     image:"./assets/images/product-1.svg",
-    price:"119.99",
+    price:119.99,
     discount: 30,
   },
   {
     id: 2,
     name: "Loose Knit 3/4 Sleeve",
     image: "./assets/images/product-2.svg",
-    price: "119.99",
+    price: 119.99,
     discount: 0,
   },
   {
     id: 3,
     name: "Basic Slim Fit T-Shirt",
     image: "./assets/images/product-3.svg",
-    price: "79.99",
+    price: 79.99,
     discount: 0,
   },
   {
     id: 4,
     name: "Loose Textured T-Shirt",
     image: "./assets/images/product-4.svg",
-    price: "119.99",
+    price: 119.99,
     discount: 0,
   }
 ]
-product.forEach(element => {
+//list product
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)
+}
+product.forEach(function(element){
   //create element li
   var li = document.createElement("li");
   li.className = "col-3 col-sm-6 product-item";
@@ -77,14 +81,14 @@ product.forEach(element => {
   //create span1
   var span1 = document.createElement("span");
   span1.className = "product-price";
-  var txt1 = document.createTextNode(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(element.price));
+  var txt1 = document.createTextNode(formatPrice(element.price));
   span1.appendChild(txt1);
   div4.appendChild(span1);
   if (element.discount != 0) {
     //create span2
     var span2 = document.createElement("span");
     span2.className = "product-price-discount";
-    var priceDiscount = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'USD' }).format(element.price - element.price * element.discount / 100);
+    var priceDiscount = formatPrice(element.price - element.price * element.discount / 100);
     var txt2 = document.createTextNode(priceDiscount);
     span2.appendChild(txt2);
     div4.appendChild(span2);
@@ -99,20 +103,51 @@ product.forEach(element => {
   //function add to cart
   button.addEventListener("click", handleAddToCart);
 })
-function handleAddToCart() {
-  var item = product.find(x => x.id == this.id);
+
+function find(arr,id) {
+  var value = '';
+  arr.forEach((item)=>{
+    if(item.id == id){
+      value = item;
+    }
+  })
+  return value;
+}
+
+function findIndex(arr,id) {
+  if(arr){
+    var indexArr = -1;
+    arr.forEach((item, index) => {
+      if (item.id == id) {
+        indexArr = index;
+      }
+    })
+    return indexArr;
+  }
+  return -1; 
+}
+
+function handleAddToCart() { 
+  var item = find(product,this.id);
   var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-  var index = cart.findIndex(x => x.id == this.id);
+  var index = findIndex(cart,this.id);
   if(index != -1){
     cart[index].qty += 1;
   }
   else{
-    cart.push({
-      ...item,
-      qty: 1
-    });
+    var itemPush ={
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      price: item.price,
+      discount: item.discount,
+      qty:1
+    }
+    cart.push(itemPush);
   }
   localStorage.setItem('cart',JSON.stringify(cart));
   localStorage.setItem("count",JSON.stringify(cart.length));
+  document.getElementsByClassName("number-cart")[0].innerHTML = cart.length;
 }
-document.getElementsByClassName("number-cart")[0].innerHTML = JSON.parse(localStorage.getItem('count'));
+document.getElementsByClassName("number-cart")[0].innerHTML = JSON.parse(localStorage.getItem("count"));
+
