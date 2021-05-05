@@ -1,31 +1,30 @@
-
-var listCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-//list cart
+var listCart = getLocal('cart') ? JSON.parse(getLocal('cart')) : [];
+// List cart
 if (listCart.length){
   var divContainer = document.createElement('div');
   divContainer.className = 'container';
   document.getElementsByClassName('carts')[0].appendChild(divContainer);
-  //
+  
   var h3 = document.createElement('h3');
   h3.className = 'title';
   var txttitle = document.createTextNode('Cart');
   h3.appendChild(txttitle);
   divContainer.appendChild(h3);
-  //
+  
   var divRow = document.createElement('div');
   divRow.className = 'row carts-container';
   divContainer.appendChild(divRow)
-  //
+  
   var ul = document.createElement('ul');
   ul.className = 'col-8 col-sm-12 cart-product';
   divRow.appendChild(ul);
-  //
+  
   listCart.forEach(function(element){
-    //create li
+    //Create li
     var licart = document.createElement('li');
     licart.className = 'cart-item';
     ul.appendChild(licart);
-    //create div
+    
     var divPro = document.createElement('div');
     divPro.className = 'cart-product-inner';
     divPro.id = element.id;
@@ -33,11 +32,11 @@ if (listCart.length){
     var divPro1 = document.createElement('div');
     divPro1.className = 'cart-product-img';
     divPro.appendChild(divPro1);
-    //img
+    
     var imgPro = document.createElement('img');
     imgPro.src = element.image;
     divPro1.appendChild(imgPro);
-    //div 
+    
     var divPro2 = document.createElement('div');
     divPro2.className = 'cart-product-content';
     divPro.appendChild(divPro2);
@@ -49,19 +48,18 @@ if (listCart.length){
     var txxp1 = document.createTextNode(element.name);
     p1.appendChild(txxp1);
     divPro3.appendChild(p1)
-    //
+    
     var link1 = document.createElement('a');
     link1.className = 'action-delete';
     link1.href = '#';
-    // link1.id = element.id;
     var txtL1 = document.createTextNode('Delete');
     link1.appendChild(txtL1);
     divPro3.appendChild(link1);
-    //
+    
     var divPro4 = document.createElement('div');
     divPro4.className = 'content-detail';
     divPro2.appendChild(divPro4);
-    //
+    
     var divPrice = document.createElement('div');
     divPro4.appendChild(divPrice);
     var p2 = document.createElement('p');
@@ -76,89 +74,77 @@ if (listCart.length){
       priceSale.appendChild(textSale);
       divPrice.appendChild(priceSale);
     }
-    //
+    
     var divPro5 = document.createElement('div');
     divPro4.appendChild(divPro5);
-    //
+    
     var divPro6 = document.createElement('div');
     divPro6.className = 'cart-qty';
     divPro5.appendChild(divPro6);
-    //
+    
     var spanPro1 = document.createElement('span');
     spanPro1.className = 'cart-qty-down';
     var textDown = document.createTextNode('-');
     spanPro1.appendChild(textDown);
     divPro6.appendChild(spanPro1);
-    //
+    
     var input = document.createElement('input');
     input.type = 'text';
     input.min = '1';
     input.value = element.qty;
     input.className = 'cart-qty-input';
     divPro6.appendChild(input);
-    //
+    
     var spanPro2 = document.createElement('span');
     spanPro2.className = 'cart-qty-up';
     var textUp = document.createTextNode('+');
     spanPro2.appendChild(textUp);
     divPro6.appendChild(spanPro2);
-    //add event
+    // Add event
     input.addEventListener('change',handleChangeQuantity)
     link1.addEventListener('click',handleDelete);
     spanPro1.addEventListener('click', handleChangeNumber);
     spanPro2.addEventListener('click', handleChangeNumber);
   });
-  //cart total
-  //
+  // Cart total
+
   var divCol = document.createElement('div');
   divCol.className = 'col-4 col-sm-12 cart-total-container';
   divRow.appendChild(divCol);
-  //
+  
   var divAddress = document.createElement('div');
   divAddress.className = 'address-user';
   divCol.appendChild(divAddress);
-  //
+  
   var pAddres = document.createElement('p');
   var txtAddres = document.createTextNode('Address: 363 Nguyen Huu Tho, Hai Chau, Da Nang');
   pAddres.appendChild(txtAddres);
   divAddress.appendChild(pAddres);
-  //
+  
   var divTotal = document.createElement('div');
   divTotal.className = 'cart-total';
   divCol.appendChild(divTotal);
-  //
+  
   var spanTitle = document.createElement('span');
   spanTitle.className = 'title-total';
   var txtSpanTitle = document.createTextNode('Total: ');
   spanTitle.appendChild(txtSpanTitle);
   divTotal.appendChild(spanTitle)
-  //
+  
   var spanTotal = document.createElement('span');
   spanTotal.className = 'total-price';
   divTotal.appendChild(spanTotal);
-  //
+  
   var divGroupBtn = document.createElement('div');
   divGroupBtn.className = 'btn-group';
   divCol.appendChild(divGroupBtn);
-  //
+  
   var btnPay = document.createElement('button');
   btnPay.className = ' btn btn-orange';
   var txtPay = document.createTextNode('Pay');
   btnPay.appendChild(txtPay);
   divGroupBtn.appendChild(btnPay);
-  //
-  function findIndex(arr, id) {
-    if (arr) {
-      var indexArr = -1;
-      arr.forEach((item, index) => {
-        if (item.id == id) {
-          indexArr = index;
-        }
-      })
-      return indexArr;
-    }
-    return -1;
-  }
+  
   function handleChangeQuantity(e) {
     var valueNumber = e.target.value;
     var id = this.closest('.cart-product-inner').id;
@@ -170,15 +156,15 @@ if (listCart.length){
       this.closest('.cart-qty').children[1].value = valueNumber;
       listCart[index].qty = Number(valueNumber);
       document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(listCart).toFixed(2);
-      localStorage.setItem('cart', JSON.stringify(listCart));
+     setLocal('cart', JSON.stringify(listCart));
     }
   }
   function handleDelete() {
     var id = this.closest('.cart-product-inner').id;
     var fil = listCart.filter(function (item) { return item.id != id});
     window.location.reload();
-    localStorage.setItem('cart',JSON.stringify(fil));
-    localStorage.setItem('count', JSON.stringify(fil.length));
+    setLocal('cart',JSON.stringify(fil));
+    setLocal('count', JSON.stringify(fil.length));
   }
   function handleChangeNumber() {
     var id = this.closest('.cart-product-inner').id;
@@ -195,7 +181,7 @@ if (listCart.length){
         document.getElementsByClassName('total-price')[0].innerHTML = Number(totalPrice(listCart).toFixed(2));
       }
     }
-    localStorage.setItem('cart', JSON.stringify(listCart));
+    setLocal('cart', JSON.stringify(listCart));
   }
   function totalPrice(arr) {
     var sum = 0;
@@ -222,5 +208,4 @@ else{
   btnNoti.appendChild(txtBtnNoti);
   divNotification.appendChild(btnNoti);
 }
-document.getElementsByClassName('number-cart')[0].innerHTML = JSON.parse(localStorage.getItem('count'));
-
+document.getElementsByClassName('number-cart')[0].innerHTML = JSON.parse(getLocal('count'));
