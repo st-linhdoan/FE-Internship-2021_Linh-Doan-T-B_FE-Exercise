@@ -162,6 +162,7 @@ if (listCart.length){
   function handleDelete() {
     var id = this.closest(".cart-product-inner").id;
     var fil = listCart.filter(function (item) { return item.id != id});
+    var total = Number(totalPrice().toFixed(2));
     window.location.reload();
     localStorage.setItem("cart",JSON.stringify(fil));
     localStorage.setItem("count", JSON.stringify(fil.length));
@@ -210,3 +211,5 @@ else{
   btnNoti.appendChild(txtBtnNoti);
   divNotification.appendChild(btnNoti);
 }
+document.getElementsByClassName("number-cart")[0].innerHTML = JSON.parse(localStorage.getItem("count"));
+
