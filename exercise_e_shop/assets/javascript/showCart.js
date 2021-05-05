@@ -163,10 +163,15 @@ if (listCart.length){
     var valueNumber = e.target.value;
     var id = this.closest(".cart-product-inner").id;
     var index = findIndex(listCart, id);
-    this.closest(".cart-qty").children[1].value = valueNumber;
-    listCart[index].qty = Number(valueNumber);
-    document.getElementsByClassName("total-price")[0].innerHTML = totalPrice(listCart).toFixed(2);
-    localStorage.setItem("cart", JSON.stringify(listCart));
+    if(valueNumber < 1){
+      this.closest(".cart-qty").children[1].value = Number(listCart[index].qty);
+    }
+    else {
+      this.closest(".cart-qty").children[1].value = valueNumber;
+      listCart[index].qty = Number(valueNumber);
+      document.getElementsByClassName("total-price")[0].innerHTML = totalPrice(listCart).toFixed(2);
+      localStorage.setItem("cart", JSON.stringify(listCart));
+    }
   }
   function handleDelete() {
     var id = this.closest(".cart-product-inner").id;
