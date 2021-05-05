@@ -283,12 +283,12 @@ a {
 }
 .header-right .cart-group .number-cart {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -6px;
+  left: 13px;
   background-color: #FFFFFF;
   font-size: 12px;
   border-radius: 50%;
-  padding: 0px 5px;
+  padding: 1px 6px;
   z-index: 99;
 }
 
@@ -298,7 +298,7 @@ a {
     background-color: #FFFFFF;
   }
   .page-header .header-left img {
-    content: url("../../assets/icons/logomobile.svg");
+    content: url("../../assets/icons/logomobile.png");
   }
   .page-header .header-center {
     display: none;
@@ -763,7 +763,7 @@ a {
     display: none;
   }
   .banner .banner-img img {
-    content: url("../images/bannerResponsive.svg");
+    content: url("../images/bannerResponsive.png");
   }
   .banner .banner-title {
     top: 271px;
@@ -858,7 +858,7 @@ a {
   }
 
   .letter .letter-img img {
-    content: url("../images/bannerfoteres.svg");
+    content: url("../images/bannerfoteres.png");
     width: 100%;
   }
   .letter .letter-container {
