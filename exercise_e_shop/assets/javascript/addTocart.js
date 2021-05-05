@@ -29,9 +29,7 @@
   }
 ]
 //list product
-function formatPrice(price) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)
-}
+
 product.forEach(function(element){
   //create element li
   var li = document.createElement("li");
@@ -81,21 +79,21 @@ product.forEach(function(element){
   //create span1
   var span1 = document.createElement("span");
   span1.className = "product-price";
-  var txt1 = document.createTextNode(formatPrice(element.price));
+  var txt1 = document.createTextNode(element.price);
   span1.appendChild(txt1);
   div4.appendChild(span1);
   if (element.discount != 0) {
     //create span2
     var span2 = document.createElement("span");
     span2.className = "product-price-discount";
-    var priceDiscount = formatPrice(element.price - element.price * element.discount / 100);
+    var priceDiscount = element.price - element.price * element.discount / 100;
     var txt2 = document.createTextNode(priceDiscount);
     span2.appendChild(txt2);
     div4.appendChild(span2);
     //create p
     var p = document.createElement("p");
     p.className = "badge badge-discount";
-    var txtp = document.createTextNode(`-${element.discount} %`);
+    var txtp = document.createTextNode('-'+ element.discount +'%');
     p.appendChild(txtp);
     div1.appendChild(p);
   }

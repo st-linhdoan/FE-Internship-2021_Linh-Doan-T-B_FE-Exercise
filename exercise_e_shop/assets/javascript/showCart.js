@@ -1,6 +1,4 @@
-function formatPrice(price) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)
-}
+
 var listCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
 //list cart
 if (listCart.length){
@@ -68,13 +66,13 @@ if (listCart.length){
     divPro4.appendChild(divPrice);
     var p2 = document.createElement("p");
     p2.className = "cart-price";
-    var txtprice = document.createTextNode(formatPrice(element.price - element.price * element.discount / 100));
+    var txtprice = document.createTextNode((element.price - element.price * element.discount / 100).toFixed(2));
     p2.appendChild(txtprice);
     divPrice.appendChild(p2);
     if(element.discount != 0){
       var priceSale = document.createElement("p");
       priceSale.className = "cart-price-sale";
-      var textSale = document.createTextNode(formatPrice(element.price));
+      var textSale = document.createTextNode(element.price);
       priceSale.appendChild(textSale);
       divPrice.appendChild(priceSale);
     }
@@ -171,17 +169,18 @@ if (listCart.length){
   function handleChangeNumber() {
     var id = this.closest(".cart-product-inner").id;
     var index = findIndex(listCart,id);
-    var total = Number(totalPrice());
+    var total = Number(totalPrice().toFixed(2));
+    console.log((isNaN(total)));
     if(this.className == 'cart-qty-up') {
       this.closest(".cart-qty").children[1].value = listCart[index].qty + 1;
       listCart[index].qty += 1;
-      document.getElementsByClassName("total-price")[0].innerHTML = formatPrice(total + (listCart[index].price - listCart[index].price * listCart[index].discount/100) );
+      document.getElementsByClassName("total-price")[0].innerHTML = (total + listCart[index].price - listCart[index].price *  listCart[index].discount/100).toFixed(2);
     }
     else{
       if (listCart[index].qty > 1) {
         this.closest(".cart-qty").children[1].value = listCart[index].qty - 1;
         listCart[index].qty -= 1;
-        document.getElementsByClassName("total-price")[0].innerHTML = formatPrice(total - listCart[index].price);
+        document.getElementsByClassName("total-price")[0].innerHTML = (total - listCart[index].price - listCart[index].price * listCart[index].discount / 100).toFixed(2);;
       }
     }
     localStorage.setItem("cart", JSON.stringify(listCart));
@@ -189,11 +188,11 @@ if (listCart.length){
   function totalPrice() {
     var sum = 0;
     listCart.forEach(function(element) {
-      sum += element.price * element.qty;
+      sum += (element.price - (element.price * (element.discount/100))) * element.qty;
     });
     return sum;
   }
-  document.getElementsByClassName("total-price")[0].innerHTML = formatPrice(totalPrice());
+  document.getElementsByClassName("total-price")[0].innerHTML = totalPrice().toFixed(2);
 }
 else{
   var divNotification = document.createElement("div");
