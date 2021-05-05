@@ -156,6 +156,9 @@
     .product-price {
       font-weight: 400;
       font-size: 20px;
+      &::before{
+        content: '$';
+      }
     }
   }
   .badge-discount {
@@ -176,10 +179,16 @@
     font-size: 20px;
     line-height: 30px;
     color: $color-red;
+    &::before{
+      content: '$';
+    }
   }
   .product-price {
     float: right;
     color: $color-cost;
+    &::before{
+      content: '$';
+    }
   }
 }
 .products-today {
