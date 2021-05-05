@@ -86,7 +86,7 @@ product.forEach(function(element){
     //create span2
     var span2 = document.createElement("span");
     span2.className = "product-price-discount";
-    var priceDiscount = element.price - element.price * element.discount / 100;
+    var priceDiscount = (element.price - element.price * element.discount / 100).toFixed(2);
     var txt2 = document.createTextNode(priceDiscount);
     span2.appendChild(txt2);
     div4.appendChild(span2);
