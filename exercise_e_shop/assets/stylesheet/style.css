@@ -615,6 +615,9 @@ a {
   font-weight: 400;
   font-size: 20px;
 }
+.product .product-info .product-price::before {
+  content: "$";
+}
 .product .badge-discount {
   position: absolute;
   top: 30px;
@@ -633,9 +636,15 @@ a {
   line-height: 30px;
   color: #FF0000;
 }
+.product-discount .product-price-discount::before {
+  content: "$";
+}
 .product-discount .product-price {
   float: right;
   color: #CECECE;
+}
+.product-discount .product-price::before {
+  content: "$";
 }
 
 .products-today {
@@ -887,6 +896,9 @@ a {
   font-weight: 600;
   margin-right: 20px;
 }
+.carts .cart-product-content .content-detail .cart-price::before {
+  content: "$";
+}
 .carts .cart-qty {
   display: flex;
   border: 1px solid #c8c8c8;
@@ -928,6 +940,9 @@ a {
 .carts .cart-total .total-price {
   font-weight: 600;
   float: right;
+}
+.carts .cart-total .total-price::before {
+  content: "$";
 }
 .carts .btn-group {
   width: 100%;
