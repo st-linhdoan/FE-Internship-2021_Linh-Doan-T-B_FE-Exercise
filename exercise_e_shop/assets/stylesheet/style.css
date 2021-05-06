@@ -299,7 +299,7 @@ a {
     background: #FFFFFF;
   }
   .page-header .header-left img {
-    content: url("../../assets/icons/logomobile.svg");
+    content: url("../../assets/icons/logomobile.png");
   }
   .page-header .header-center {
     display: none;
@@ -764,7 +764,7 @@ a {
     display: none;
   }
   .banner .banner-img img {
-    content: url("../images/bannerResponsive.svg");
+    content: url("../images/bannerResponsive.png");
   }
   .banner .banner-title {
     top: 271px;
@@ -859,7 +859,7 @@ a {
   }
 
   .letter .letter-img img {
-    content: url("../images/bannerfoteres.svg");
+    content: url("../images/bannerfoteres.png");
     width: 100%;
   }
   .letter .letter-container {
