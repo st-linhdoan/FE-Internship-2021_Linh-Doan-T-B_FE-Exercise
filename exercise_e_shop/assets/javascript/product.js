@@ -6,7 +6,6 @@ function fetchData(data){
 function render(data) {
   //list product
   data.forEach(function (element) {
-    console.log(element);
     //create element li to show item product
     var li = document.createElement('li');
     li.className = 'col-3 col-sm-6 product-item';
