@@ -24,24 +24,29 @@ function findIndex(arr, id) {
   }
   return -1;
 }
-
+function addItem(item) {
+  var itemPush = {
+    id: item.id,
+    name: item.name,
+    image: item.image,
+    price: item.price,
+    discount: item.discount,
+    qty: 1
+  }
+  cart.push(itemPush);
+}
+function updateItem(cart,index) {
+  cart[index].qty += 1;
+}
 function handleAddToCart(data,id) {
   var item = find(data, id);
   var cart = getDataLocal('cart',[]);
   var index = findIndex(cart, id);
   if (index != -1) {
-    cart[index].qty += 1;
+    updateItem(cart,index);
   }
   else {
-    var itemPush = {
-      id: item.id,
-      name: item.name,
-      image: item.image,
-      price: item.price,
-      discount: item.discount,
-      qty: 1
-    }
-    cart.push(itemPush);
+    addItem(item);
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   localStorage.setItem('count', JSON.stringify(cart.length));
