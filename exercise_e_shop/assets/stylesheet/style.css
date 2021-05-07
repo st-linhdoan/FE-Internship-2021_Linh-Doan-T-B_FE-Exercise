@@ -253,6 +253,7 @@ a {
   width: 100%;
   z-index: 999;
   padding: 48px 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 .header-center .nav-list .nav-item {
   display: inline-block;
@@ -295,7 +296,7 @@ a {
 @media (max-width: 576px) {
   .page-header {
     padding: 20px 0;
-    background-color: #FFFFFF;
+    background: #FFFFFF;
   }
   .page-header .header-left img {
     content: url("../../assets/icons/logomobile.png");
@@ -881,10 +882,6 @@ a {
     padding: 7px 19px;
   }
 }
-.page-header {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
-}
-
 .carts {
   padding-top: 160px;
   padding-bottom: 40px;
@@ -916,13 +913,13 @@ a {
 }
 .carts .cart-product-content .content-desc .cart-product-name {
   color: #333333;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 21px;
   font-weight: 400;
   margin-bottom: 40px;
 }
 .carts .cart-product-content .content-desc .action-delete {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 .carts .cart-product-content .content-detail {
@@ -935,6 +932,16 @@ a {
   margin-right: 20px;
 }
 .carts .cart-product-content .content-detail .cart-price::before {
+  content: "$";
+}
+.carts .cart-product-content .content-detail .cart-price-sale {
+  margin-top: 6px;
+  text-decoration: line-through;
+  font-weight: 500;
+  font-size: 17px;
+  color: #808080;
+}
+.carts .cart-product-content .content-detail .cart-price-sale::before {
   content: "$";
 }
 .carts .cart-qty {
