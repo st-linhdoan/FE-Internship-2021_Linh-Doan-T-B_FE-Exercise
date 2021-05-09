@@ -2,35 +2,9 @@ function getDataLocal(dataLocal, gt) {
   var data = localStorage.getItem(dataLocal) ? JSON.parse(localStorage.getItem(dataLocal)) : gt;
   return data;
 }
-function find(arr, id) {
-  var value = '';
-  arr.forEach((item) => {
-    if (item.id == id) {
-      value = item;
-    }
-  })
-  return value;
-}
-
-function findIndex(arr, id) {
-  if (arr) {
-    var indexArr = -1;
-    arr.forEach((item, index) => {
-      if (item.id == id) {
-        indexArr = index;
-      }
-    })
-    return indexArr;
-  }
-  return -1;
-}
-function addItem(item) {
+function addItem(cart,item) {
   var itemPush = {
-    id: item.id,
-    name: item.name,
-    image: item.image,
-    price: item.price,
-    discount: item.discount,
+    ...item,
     qty: 1
   }
   cart.push(itemPush);
@@ -38,15 +12,15 @@ function addItem(item) {
 function updateItem(cart,index) {
   cart[index].qty += 1;
 }
-function handleAddToCart(data,id) {
-  var item = find(data, id);
+export function handleAddToCart(data,id) {
+  var item = data.find(x => x.id == id);
   var cart = getDataLocal('cart',[]);
-  var index = findIndex(cart, id);
+  var index = cart.findIndex(x =>x.id == id);
   if (index != -1) {
     updateItem(cart,index);
   }
   else {
-    addItem(item);
+    addItem(cart,item);
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   localStorage.setItem('count', JSON.stringify(cart.length));

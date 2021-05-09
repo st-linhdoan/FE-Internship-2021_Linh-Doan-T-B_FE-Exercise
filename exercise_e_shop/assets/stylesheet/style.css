@@ -999,4 +999,8 @@ a {
   font-size: 18px;
 }
 
+.hidden {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
