@@ -1,81 +1,64 @@
+import { addEvent,updateNumberCart,updateItem,getDataLocal} from './index.js';
 // get data
 function fetchData(data){
-  return data
+  return data;
+}
+//return html
+function returnList(product) {
+  let html =
+    `<li class="col-3 col-sm-6 product-item">
+      <div class="product ${product.discount !=0 ? `product-discount` : ""}">
+        <div class="product-img">
+          <a href="#"><img src=${product.image} alt=${product.name}></a>
+          <button class="btn btn-orange btn-add-cart">Add to cart</button>
+        </div>
+        <div class="product-info">
+          <h4 class="product-name">
+            <a href="#">${product.name}</a>
+          </h4>
+          <div>
+            <span class="product-price">${product.price}</span>
+            ${
+              (product.discount != 0) 
+              ? (`<span class="product-price-discount">${(product.price - product.price * product.discount / 100).toFixed(2)}</span>`)
+              : ""
+            }
+          </div>
+        </div>
+        ${ (product.discount != 0) ? (`<p class="badge badge-discount">-${product.discount}%</p>`) : ""}
+      </div>
+    </li>`
+  return html;
 }
 // render view
 function render(data) {
   //list product
-  data.forEach(function (element) {
-    //create element li to show item product
-    var li = document.createElement('li');
-    li.className = 'col-3 col-sm-6 product-item';
-    //create element div1 to wrap content product
-    var div1 = document.createElement('div');
-    div1.className = element.discount == 0 ? 'product' : 'product product-discount';
-    li.appendChild(div1);
-    //create element div2 to wrap image
-    var div2 = document.createElement('div');
-    div2.className = 'product-img';
-    div1.appendChild(div2);
-    //create element a to add link for image
-    var a = document.createElement('a');
-    a.href = '#';
-    div2.appendChild(a);
-    //create element img 
-    var img = document.createElement('img');
-    img.src = element.image;
-    img.alt = element.name;
-    a.appendChild(img);
-    // create element button add to cart
-    var button = document.createElement('button');
-    button.className = 'btn btn-orange btn-add-cart';
-    button.id = element.id;
-    var txtbtn = document.createTextNode('Add to cart');
-    button.appendChild(txtbtn);
-    div2.appendChild(button);
-    //create element div3 to wrap infomation product
-    var div3 = document.createElement('div');
-    div3.className = 'product-info';
-    div1.appendChild(div3);
-    //create element h4 to wrap product name
-    var h4 = document.createElement('h4');
-    h4.className = 'product-name';
-    div3.appendChild(h4);
-    //create element a to display product name
-    var a2 = document.createElement('a');
-    a2.href = '#';
-    var texta2 = document.createTextNode(element.name);
-    a2.appendChild(texta2);
-    h4.appendChild(a2);
-    //create element div to wrap product-price
-    var div4 = document.createElement('div');
-    div3.appendChild(div4);
-    //create span1 to display product-price
-    var span1 = document.createElement('span');
-    span1.className = 'product-price';
-    var txt1 = document.createTextNode(element.price);
-    span1.appendChild(txt1);
-    div4.appendChild(span1);
-    if (element.discount != 0) {
-      //create span2 to display product-price-discount
-      var span2 = document.createElement('span');
-      span2.className = 'product-price-discount';
-      var priceDiscount = (element.price - element.price * element.discount / 100).toFixed(2);
-      var txt2 = document.createTextNode(priceDiscount);
-      span2.appendChild(txt2);
-      div4.appendChild(span2);
-      //create p to display badge discount
-      var p = document.createElement('p');
-      p.className = 'badge badge-discount';
-      var txtp = document.createTextNode('-' + element.discount + '%');
-      p.appendChild(txtp);
-      div1.appendChild(p);
-    }
-    //append li fo ul.product-list
-    document.getElementsByClassName('product-list')[0].appendChild(li);
-    //add event add to cart
-    button.addEventListener('click', handleAddToCart.bind(this, data,element.id));
-  })
+  let li = '';
+  for (let element of data) {
+    li += returnList(element);
+  }
+  document.getElementsByClassName('product-list')[0].innerHTML = li;
+}
+function handleAddToCart(e, data, id) {
+  let item = data.find(x => x.id == id);
+  let cart = getDataLocal('cart', []);
+  let index = cart.findIndex(x => x.id == id);
+  if (index != -1) {
+    updateItem(cart, index, "+");
+  }
+  else {
+    addItem(cart, item);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('count', JSON.stringify(cart.length));
+  document.getElementsByClassName('number-cart')[0].innerHTML = cart.length;
+}
+function addItem(cart, item) {
+  let itemPush = {
+    ...item,
+    qty: 1
+  }
+  cart.push(itemPush);
 }
 //data products
 var products = [
@@ -111,3 +94,5 @@ var products = [
 // fetch and render data
 var data = fetchData(products);
 render(data);
+addEvent(data, 'btn-add-cart', 'click', handleAddToCart);
+updateNumberCart();
