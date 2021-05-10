@@ -1,25 +1,13 @@
-export function addEvent(arr, className, eventFuc, nameFunc) {
-  arr.forEach((element, index) => {
-    return document.getElementsByClassName(className)[index].addEventListener(eventFuc,(e) => nameFunc(e,arr, element.id));
-  });
-}
-//fecth data
-function getDataLocal(dataLocal, gt) {
-  // check data local , if not null -> parse else assign gt
-  var data = localStorage.getItem(dataLocal) ? JSON.parse(localStorage.getItem(dataLocal)) : gt;
-  return data;
-}
+import {addEvent,getDataLocal,updateItem} from './index.js'
 //update data after handle
-function updateData() {
-  document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(listCart).toFixed(2);
-  localStorage.setItem('cart', JSON.stringify(listCart));
+function updateData(data) {
+  document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
+  localStorage.setItem('cart', JSON.stringify(data));
 }
 //func delete
 function handleDelete(e, data, id) {
-  // get id
-  var id = e.target.closest('.cart-product-inner').id;
   //filter item is id not in listCart
-  var fil = data.filter(item => item.id != id );
+  let fil = data.filter(item => item.id != id );
   window.location.reload();
   // update data
   localStorage.setItem('cart', JSON.stringify(fil));
@@ -27,29 +15,30 @@ function handleDelete(e, data, id) {
 }
 //func change quantity when click button increase or deacrease
 function handleChangeNumber(e,data,id){
+  let pointer = e.target;
   // Get index
-  var index = data.findIndex(x => x.id == id);
+  let index = data.findIndex(x => x.id == id);
   //Check is decrease or increase
-  if (e.target.className == "cart-qty-up") {
+  if (pointer.className == "cart-qty-up") {
     document.getElementsByClassName("cart-qty-input")[index].value = data[index].qty + 1;
-    data[index].qty += 1;
-    updateData(); 
+    updateItem(data,index,"+");
+    updateData(data); 
   } 
   else {
     // Check quantity > 1 to handle
     if (data[index].qty > 1) {
       document.getElementsByClassName("cart-qty-input")[index].value = data[index].qty - 1;
-      data[index].qty -= 1;
-      updateData();
+      updateItem(data,index,"-");
+      updateData(data);
     }
   }
 }
 //func change quantity when input number
 function handleChangeQuantity(e,data,id) {
   // get value input
-  var valueNumber = e.target.value;
+  let valueNumber = e.target.value;
   // Get index
-  var index = data.findIndex(x => x.id == id);
+  let index = data.findIndex(x => x.id == id);
   // number < 1 -> value input = current quantity
   if (valueNumber < 1) {
     document.getElementsByClassName("cart-qty-input")[index].value = Number(data[index].qty);
@@ -58,12 +47,12 @@ function handleChangeQuantity(e,data,id) {
   else {
     document.getElementsByClassName("cart-qty-input")[index].value = valueNumber;
     data[index].qty = Number(valueNumber);
-    updateData();
+    updateData(data);
   }
 }
 // total price
 function totalPrice(arr) {
-  var sum = 0;
+  let sum = 0;
   arr.forEach(function (element) {
     sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
   });
@@ -71,7 +60,7 @@ function totalPrice(arr) {
 }
 //return list product in cart
 function returnListCart(item) {
-  var html = 
+  let html = 
   `
   <li class="cart-item">
     <div class="cart-product-inner" id=${item.id}>
@@ -104,7 +93,7 @@ function returnListCart(item) {
 }
 //render cart empty
 function renderCartEmpty() {
-  var html = 
+  let html = 
   `
     <div class="notification-container text-center" > 
     <img src="https://professionalscareer.com/assets/images/emptycart.png">
@@ -117,7 +106,7 @@ function renderCartEmpty() {
 //render view
 function render(data) {
   // map data cart
-  var li = '';
+  let li = '';
   data.forEach(element => {
     li += returnListCart(element);
   });

@@ -1,16 +1,12 @@
-import {handleAddToCart} from './addCart.js';
+import { addEvent} from './index.js';
+import {handleAddToCart} from './addCart.js'
 // get data
 function fetchData(data){
-  return data
-}
-function addEvent(arr, className, eventFuc, nameFunc) {
-  arr.forEach((element,index) => {
-    return document.getElementsByClassName(className)[index].addEventListener(eventFuc, () => nameFunc(arr,element.id));
-  });
+  return data;
 }
 //return html
 function returnList(product) {
-  var html =
+  let html =
     `<li class="col-3 col-sm-6 product-item">
       <div class="product ${product.discount !=0 ? `product-discount` : ""}">
         <div class="product-img">
@@ -38,7 +34,7 @@ function returnList(product) {
 // render view
 function render(data) {
   //list product
-  var li = '';
+  let li = '';
   data.forEach(element => {
     li += returnList(element);
   })
