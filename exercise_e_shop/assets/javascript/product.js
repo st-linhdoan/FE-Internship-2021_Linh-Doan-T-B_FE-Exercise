@@ -1,5 +1,4 @@
-import { addEvent} from './index.js';
-import {handleAddToCart} from './addCart.js'
+import { addEvent,updateNumberCart,updateItem,getDataLocal} from './index.js';
 // get data
 function fetchData(data){
   return data;
@@ -35,10 +34,31 @@ function returnList(product) {
 function render(data) {
   //list product
   let li = '';
-  data.forEach(element => {
+  for (let element of data) {
     li += returnList(element);
-  })
+  }
   document.getElementsByClassName('product-list')[0].innerHTML = li;
+}
+function handleAddToCart(e, data, id) {
+  let item = data.find(x => x.id == id);
+  let cart = getDataLocal('cart', []);
+  let index = cart.findIndex(x => x.id == id);
+  if (index != -1) {
+    updateItem(cart, index, "+");
+  }
+  else {
+    addItem(cart, item);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('count', JSON.stringify(cart.length));
+  document.getElementsByClassName('number-cart')[0].innerHTML = cart.length;
+}
+function addItem(cart, item) {
+  let itemPush = {
+    ...item,
+    qty: 1
+  }
+  cart.push(itemPush);
 }
 //data products
 var products = [
@@ -75,3 +95,4 @@ var products = [
 var data = fetchData(products);
 render(data);
 addEvent(data, 'btn-add-cart', 'click', handleAddToCart);
+updateNumberCart();

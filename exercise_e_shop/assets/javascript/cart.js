@@ -1,8 +1,14 @@
-import {addEvent,getDataLocal,updateItem} from './index.js'
+import {addEvent,getDataLocal,updateItem, updateNumberCart} from './index.js'
 //update data after handle
 function updateData(data) {
   document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
   localStorage.setItem('cart', JSON.stringify(data));
+}
+function updateInput(data,index,params) {
+  if (typeof params == "number") {
+    return document.getElementsByClassName("cart-qty-input")[index].value = params;
+  }
+  return document.getElementsByClassName("cart-qty-input")[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
 }
 //func delete
 function handleDelete(e, data, id) {
@@ -20,14 +26,14 @@ function handleChangeNumber(e,data,id){
   let index = data.findIndex(x => x.id == id);
   //Check is decrease or increase
   if (pointer.className == "cart-qty-up") {
-    document.getElementsByClassName("cart-qty-input")[index].value = data[index].qty + 1;
+    updateInput(data,index,"+");
     updateItem(data,index,"+");
     updateData(data); 
   } 
   else {
     // Check quantity > 1 to handle
     if (data[index].qty > 1) {
-      document.getElementsByClassName("cart-qty-input")[index].value = data[index].qty - 1;
+      updateInput(data, index, "-");
       updateItem(data,index,"-");
       updateData(data);
     }
@@ -36,26 +42,26 @@ function handleChangeNumber(e,data,id){
 //func change quantity when input number
 function handleChangeQuantity(e,data,id) {
   // get value input
-  let valueNumber = e.target.value;
+  let valueNumber = Number(e.target.value);
   // Get index
   let index = data.findIndex(x => x.id == id);
   // number < 1 -> value input = current quantity
   if (valueNumber < 1) {
-    document.getElementsByClassName("cart-qty-input")[index].value = Number(data[index].qty);
+    updateInput(data, index, data[index].qty);
   }
   // number > 1 -> update quantity
   else {
-    document.getElementsByClassName("cart-qty-input")[index].value = valueNumber;
-    data[index].qty = Number(valueNumber);
+    updateInput(data,index,valueNumber);
+    updateItem(data,index,Number(valueNumber));
     updateData(data);
   }
 }
 // total price
 function totalPrice(arr) {
   let sum = 0;
-  arr.forEach(function (element) {
+  for (let element of arr) {
     sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
-  });
+  };
   return sum;
 }
 //return list product in cart
@@ -105,17 +111,17 @@ function renderCartEmpty() {
 }
 //render view
 function render(data) {
-  // map data cart
+  // map data car
   let li = '';
-  data.forEach(element => {
+  for (let element of data) {
     li += returnListCart(element);
-  });
+  };
   document.getElementsByClassName("cart-product")[0].innerHTML = li;
 }
 
 function renderHTML(data) {
     //if cart is not null, display cart screen
-  if(data.length > 0){
+  if (data.length > 0) {
     render(data);
   }
   else {
@@ -132,5 +138,5 @@ addEvent(listCart,'cart-qty-input','change',handleChangeQuantity);
 addEvent(listCart, 'cart-qty-up','click',handleChangeNumber);
 addEvent(listCart,'action-delete','click',handleDelete);
 // inner HTML
-document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(listCart).toFixed(2);
-document.getElementsByClassName('number-cart')[0].innerHTML = getDataLocal('count',0);
+updateData(listCart);
+updateNumberCart();
