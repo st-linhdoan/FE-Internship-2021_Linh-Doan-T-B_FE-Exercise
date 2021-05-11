@@ -139,7 +139,33 @@
 }
 .product {
   position: relative;
+  .btn-add-cart{
+    display: none;
+
+  }
   .product-img {
+    position: relative;
+    transition: all 2s;
+    &:hover{
+      .btn-add-cart{
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: $color-text;
+        opacity: 0.5;
+      }
+    }
     img {
       width: 100%;
     }
@@ -156,7 +182,11 @@
     .product-price {
       font-weight: 400;
       font-size: 20px;
+      &::before{
+        content: '$';
+      }
     }
+    
   }
   .badge-discount {
     position: absolute;
@@ -176,10 +206,16 @@
     font-size: 20px;
     line-height: 30px;
     color: $color-red;
+    &::before{
+      content: '$';
+    }
   }
   .product-price {
     float: right;
     color: $color-cost;
+    &::before{
+      content: '$';
+    }
   }
 }
 .products-today {
@@ -266,7 +302,7 @@
     }
     .banner-img {
       img {
-        content: url('../images/bannerResponsive.svg');
+        content: url('../images/bannerResponsive.png');
       }
     }
     .banner-title {
@@ -378,7 +414,7 @@
   .letter {
     .letter-img {
       img{
-        content: url('../images/bannerfoteres.svg');
+        content: url('../images/bannerfoteres.png');
         width: 100%;
       }
     }
