@@ -1,58 +1,58 @@
 import { addEvent, getDataLocal, updateItem, updateNumberCart } from './index.js';
 function updateData(data) {
-    document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
-    localStorage.setItem('cart', JSON.stringify(data));
+  document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
+  localStorage.setItem('cart', JSON.stringify(data));
 }
 function updateInput(data, index, params) {
-    if (typeof params == "number") {
-        return document.getElementsByClassName("cart-qty-input")[index].value = params;
-    }
-    return document.getElementsByClassName("cart-qty-input")[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
+  if (typeof params == "number") {
+    return document.getElementsByClassName("cart-qty-input")[index].value = params;
+  }
+  return document.getElementsByClassName("cart-qty-input")[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
 }
 function handleDelete(e, data, id) {
-    let fil = data.filter(item => item.id != id);
-    window.location.reload();
-    localStorage.setItem('cart', JSON.stringify(fil));
-    localStorage.setItem('count', JSON.stringify(fil.length));
+  let fil = data.filter(item => item.id != id);
+  window.location.reload();
+  localStorage.setItem('cart', JSON.stringify(fil));
+  localStorage.setItem('count', JSON.stringify(fil.length));
 }
 function handleChangeNumber(e, data, id) {
-    let pointer = e.target;
-    let index = data.findIndex(x => x.id == id);
-    if (pointer.className == "cart-qty-up") {
-        updateInput(data, index, "+");
-        updateItem(data, index, "+");
-        updateData(data);
+  let pointer = e.target;
+  let index = data.findIndex(x => x.id == id);
+  if (pointer.className == "cart-qty-up") {
+    updateInput(data, index, "+");
+    updateItem(data, index, "+");
+    updateData(data);
+  }
+  else {
+    if (data[index].qty > 1) {
+      updateInput(data, index, "-");
+      updateItem(data, index, "-");
+      updateData(data);
     }
-    else {
-        if (data[index].qty > 1) {
-            updateInput(data, index, "-");
-            updateItem(data, index, "-");
-            updateData(data);
-        }
-    }
+  }
 }
 function handleChangeQuantity(e, data, id) {
-    let valueNumber = Number(e.target.value);
-    let index = data.findIndex(x => x.id == id);
-    if (valueNumber < 1) {
-        updateInput(data, index, data[index].qty);
-    }
-    else {
-        updateInput(data, index, valueNumber);
-        updateItem(data, index, Number(valueNumber));
-        updateData(data);
-    }
+  let valueNumber = Number(e.target.value);
+  let index = data.findIndex(x => x.id == id);
+  if (valueNumber < 1) {
+    updateInput(data, index, data[index].qty);
+  }
+  else {
+    updateInput(data, index, valueNumber);
+    updateItem(data, index, Number(valueNumber));
+    updateData(data);
+  }
 }
 function totalPrice(arr) {
-    let sum = 0;
-    for (let element of arr) {
-        sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
-    }
-    ;
-    return sum;
+  let sum = 0;
+  for (let element of arr) {
+    sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
+  }
+  ;
+  return sum;
 }
 function returnListCart(item) {
-    let html = `
+  let html = `
   <li class="cart-item">
     <div class="cart-product-inner" id=${item.id}>
       <div class="cart-product-img">
@@ -80,33 +80,33 @@ function returnListCart(item) {
     </div>
   </li>
   `;
-    return html;
+  return html;
 }
 function renderCartEmpty() {
-    let html = `
+  let html = `
     <div class="notification-container text-center" > 
     <img src="https://professionalscareer.com/assets/images/emptycart.png">
       <br>
       <a href="./home.html" class="btn btn-orange">Continue to purchase</a>
     </div>
   `;
-    return html;
+  return html;
 }
 function render(data) {
-    let li = '';
-    for (let element of data) {
-        li += returnListCart(element);
-    }
-    ;
-    document.getElementsByClassName("cart-product")[0].innerHTML = li;
+  let li = '';
+  for (let element of data) {
+    li += returnListCart(element);
+  }
+  ;
+  document.getElementsByClassName("cart-product")[0].innerHTML = li;
 }
 function renderHTML(data) {
-    if (data.length > 0) {
-        render(data);
-    }
-    else {
-        document.getElementsByClassName('carts')[0].innerHTML = renderCartEmpty();
-    }
+  if (data.length > 0) {
+    render(data);
+  }
+  else {
+    document.getElementsByClassName('carts')[0].innerHTML = renderCartEmpty();
+  }
 }
 var listCart = getDataLocal('cart', []);
 renderHTML(listCart);

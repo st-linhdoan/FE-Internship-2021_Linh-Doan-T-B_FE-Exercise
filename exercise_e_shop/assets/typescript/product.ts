@@ -36,7 +36,7 @@ function fetchData():IProduct[] {
 }
 //return html
 function returnList(product:IProduct) {
-  let html =
+  let html:string =
   `<li class="col-3 col-sm-6 product-item">
     <div class="product ${product.discount != 0 ? `product-discount` : ""}">
       <div class="product-img">
@@ -69,9 +69,9 @@ function render(data:IProduct[]) {
   }
   document.getElementsByClassName('product-list')[0].innerHTML = li;
 }
-function handleAddToCart(e:any, data:any, id:number) : void {
+function handleAddToCart(e:any, data:IProduct[], id:number):void {
   let item:IProduct = data.find(x => x.id == id);
-  let cart:any= getDataLocal('cart', []);
+  let cart:IProductCart[]= getDataLocal('cart', []);
   let index:number = cart.findIndex(x => x.id == id);
   let view:any = document.getElementsByClassName('number-cart');
   if (index != -1) {
@@ -84,7 +84,7 @@ function handleAddToCart(e:any, data:any, id:number) : void {
   localStorage.setItem('count', JSON.stringify(cart.length));
   view[0].innerHTML = cart.length;
 }
-function addItem(cart:IProductCart[], item:IProduct) {
+function addItem(cart:IProductCart[], item:IProduct):void {
   let itemPush = {
     ...item,
     qty: 1

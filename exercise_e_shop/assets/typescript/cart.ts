@@ -1,18 +1,19 @@
 import { addEvent, getDataLocal, updateItem, updateNumberCart } from './index.js';
 import { IProductCart } from './interface.js'
 //update data after handle
-function updateData(data: IProductCart[]) {
+function updateData(data: IProductCart[]):void {
   document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
   localStorage.setItem('cart', JSON.stringify(data));
 }
-function updateInput(data: IProductCart[], index: number, params: string | number) {
+function updateInput(data: IProductCart[], index: number, params: string | number):number {
+  let view: any = document.getElementsByClassName("cart-qty-input");
   if (typeof params == "number") {
-    return document.getElementsByClassName("cart-qty-input")[index].value = params;
+    return view[index].value = params;
   }
-  return document.getElementsByClassName("cart-qty-input")[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
+  return view[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
 }
 //func delete
-function handleDelete(e: any, data: IProductCart[], id: number) {
+function handleDelete(e: any, data: IProductCart[], id: number):void {
   //filter item is id not in listCart
   let fil = data.filter(item => item.id != id);
   window.location.reload();
@@ -21,7 +22,7 @@ function handleDelete(e: any, data: IProductCart[], id: number) {
   localStorage.setItem('count', JSON.stringify(fil.length));
 }
 //func change quantity when click button increase or deacrease
-function handleChangeNumber(e: any, data: IProductCart[], id: number) {
+function handleChangeNumber(e: any, data: IProductCart[], id: number):void {
   let pointer = e.target;
   // Get index
   let index = data.findIndex(x => x.id == id);
@@ -41,7 +42,7 @@ function handleChangeNumber(e: any, data: IProductCart[], id: number) {
   }
 }
 //func change quantity when input number
-function handleChangeQuantity(e: any, data: IProductCart[], id: number) {
+function handleChangeQuantity(e: any, data: IProductCart[], id: number):void {
   // get value input
   let valueNumber = Number(e.target.value);
   // Get index
@@ -58,7 +59,7 @@ function handleChangeQuantity(e: any, data: IProductCart[], id: number) {
   }
 }
 // total price
-function totalPrice(arr: IProductCart[]) {
+function totalPrice(arr: IProductCart[]):number {
   let sum = 0;
   for (let element of arr) {
     sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
@@ -66,8 +67,8 @@ function totalPrice(arr: IProductCart[]) {
   return sum;
 }
 //return list product in cart
-function returnListCart(item: IProductCart) {
-  let html =
+function returnListCart(item: IProductCart):string {
+  let html:string =
     `
   <li class="cart-item">
     <div class="cart-product-inner" id=${item.id}>
@@ -99,8 +100,8 @@ function returnListCart(item: IProductCart) {
   return html;
 }
 //render cart empty
-function renderCartEmpty() {
-  let html =
+function renderCartEmpty():string {
+  let html:string =
     `
     <div class="notification-container text-center" > 
     <img src="https://professionalscareer.com/assets/images/emptycart.png">
@@ -111,7 +112,7 @@ function renderCartEmpty() {
   return html;
 }
 //render view
-function render(data: IProductCart[]) {
+function render(data: IProductCart[]):void {
   // map data car
   let li = '';
   for (let element of data) {
@@ -120,7 +121,7 @@ function render(data: IProductCart[]) {
   document.getElementsByClassName("cart-product")[0].innerHTML = li;
 }
 
-function renderHTML(data: IProductCart[]) {
+function renderHTML(data: IProductCart[]):void {
   //if cart is not null, display cart screen
   if (data.length > 0) {
     render(data);
