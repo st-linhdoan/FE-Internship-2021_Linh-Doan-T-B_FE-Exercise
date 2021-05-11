@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["es6","DOM"],
     "target": "es6",
-    "moduleResolution": "node",
-    "watch": true,
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "outDir": "assets/convert"
+    "module": "es6",
+    "outDir": "./assets/convert",
   },
 }

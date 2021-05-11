@@ -7,10 +7,10 @@ function updateData(data: IProductCart[]):void {
 }
 function updateInput(data: IProductCart[], index: number, params: string | number):number {
   let view: any = document.getElementsByClassName("cart-qty-input");
-  if (typeof params == "number") {
+  if (typeof params === "number") {
     return view[index].value = params;
   }
-  return view[index].value = (params == "+" ? data[index].qty + 1 : data[index].qty - 1);
+  return view[index].value = (params === "+" ? data[index].qty + 1 : data[index].qty - 1);
 }
 //func delete
 function handleDelete(e: any, data: IProductCart[], id: number):void {
@@ -25,9 +25,9 @@ function handleDelete(e: any, data: IProductCart[], id: number):void {
 function handleChangeNumber(e: any, data: IProductCart[], id: number):void {
   let pointer:any = e.target;
   // Get index
-  let index:number = data.findIndex(x => x.id == id);
+  let index:number = data.findIndex(x => x.id === id);
   //Check is decrease or increase
-  if (pointer.className == "cart-qty-up") {
+  if (pointer.className === "cart-qty-up") {
     updateInput(data, index, "+");
     updateItem(data, index, "+");
     updateData(data);
@@ -46,7 +46,7 @@ function handleChangeQuantity(e: any, data: IProductCart[], id: number):void {
   // get value input
   let valueNumber:number = Number(e.target.value);
   // Get index
-  let index:number = data.findIndex(x => x.id == id);
+  let index:number = data.findIndex(x => x.id === id);
   // number < 1 -> value input = current quantity
   if (valueNumber < 1) {
     updateInput(data, index, data[index].qty);

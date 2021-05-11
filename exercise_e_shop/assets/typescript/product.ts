@@ -70,9 +70,9 @@ function render(data:IProduct[]) {
   document.getElementsByClassName('product-list')[0].innerHTML = li;
 }
 function handleAddToCart(e:any, data:IProduct[], id:number):void {
-  let item:IProduct = data.find(x => x.id == id);
+  let item:IProduct = data.find(x => x.id === id);
   let cart:IProductCart[]= getDataLocal('cart', []);
-  let index:number = cart.findIndex(x => x.id == id);
+  let index:number = cart.findIndex(x => x.id === id);
   let view:any = document.getElementsByClassName('number-cart');
   if (index != -1) {
       updateItem(cart, index, "+");

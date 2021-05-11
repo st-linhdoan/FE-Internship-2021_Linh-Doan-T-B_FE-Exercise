@@ -4,10 +4,10 @@ export function getDataLocal(dataLocal: string, gt: any) {
   return data;
 }
 export function updateItem(cart: IProductCart[], index: number, caculator: string | number) {
-  if (typeof caculator == "number") {
+  if (typeof caculator === "number") {
     return cart[index].qty = caculator;
   }
-  return caculator == "+" ? cart[index].qty += 1 : cart[index].qty -= 1;
+  return caculator === "+" ? cart[index].qty += 1 : cart[index].qty -= 1;
 }
 export function addEvent(arr: any, className: string, eventFuc: string, nameFunc: any) {
   arr.forEach((element: any, index: number) => {

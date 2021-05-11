@@ -3,10 +3,10 @@ export function getDataLocal(dataLocal, gt) {
   return data;
 }
 export function updateItem(cart, index, caculator) {
-  if (typeof caculator == "number") {
+  if (typeof caculator === "number") {
     return cart[index].qty = caculator;
   }
-  return caculator == "+" ? cart[index].qty += 1 : cart[index].qty -= 1;
+  return caculator === "+" ? cart[index].qty += 1 : cart[index].qty -= 1;
 }
 export function addEvent(arr, className, eventFuc, nameFunc) {
   arr.forEach((element, index) => {

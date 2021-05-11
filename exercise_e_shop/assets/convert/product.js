@@ -1,4 +1,5 @@
 import { addEvent, updateNumberCart, updateItem, getDataLocal } from './index.js';
+// get data
 function fetchData() {
   let products = [
     {
@@ -32,6 +33,7 @@ function fetchData() {
   ];
   return products;
 }
+//return html
 function returnList(product) {
   let html = `<li class="col-3 col-sm-6 product-item">
     <div class="product ${product.discount != 0 ? `product-discount` : ""}">
@@ -55,7 +57,9 @@ function returnList(product) {
   </li>`;
   return html;
 }
+// render view
 function render(data) {
+  //list product
   let li = '';
   for (let element of data) {
     li += returnList(element);
@@ -63,9 +67,9 @@ function render(data) {
   document.getElementsByClassName('product-list')[0].innerHTML = li;
 }
 function handleAddToCart(e, data, id) {
-  let item = data.find(x => x.id == id);
+  let item = data.find(x => x.id === id);
   let cart = getDataLocal('cart', []);
-  let index = cart.findIndex(x => x.id == id);
+  let index = cart.findIndex(x => x.id === id);
   let view = document.getElementsByClassName('number-cart');
   if (index != -1) {
     updateItem(cart, index, "+");
@@ -81,6 +85,7 @@ function addItem(cart, item) {
   let itemPush = Object.assign(Object.assign({}, item), { qty: 1 });
   cart.push(itemPush);
 }
+// fetch and render data
 var data = fetchData();
 render(data);
 addEvent(data, 'btn-add-cart', 'click', handleAddToCart);
