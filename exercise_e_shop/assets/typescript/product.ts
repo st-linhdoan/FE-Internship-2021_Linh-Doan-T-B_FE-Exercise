@@ -63,7 +63,7 @@ function returnList(product:IProduct) {
 // render view
 function render(data:IProduct[]) {
   //list product
-  let li = '';
+  let li:string = '';
   for (let element of data) {
       li += returnList(element);
   }
@@ -85,7 +85,7 @@ function handleAddToCart(e:any, data:IProduct[], id:number):void {
   view[0].innerHTML = cart.length;
 }
 function addItem(cart:IProductCart[], item:IProduct):void {
-  let itemPush = {
+  let itemPush:IProductCart = {
     ...item,
     qty: 1
   }

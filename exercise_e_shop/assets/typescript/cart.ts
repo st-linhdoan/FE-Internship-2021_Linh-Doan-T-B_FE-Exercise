@@ -15,7 +15,7 @@ function updateInput(data: IProductCart[], index: number, params: string | numbe
 //func delete
 function handleDelete(e: any, data: IProductCart[], id: number):void {
   //filter item is id not in listCart
-  let fil = data.filter(item => item.id != id);
+  let fil:IProductCart[] = data.filter(item => item.id != id);
   window.location.reload();
   // update data
   localStorage.setItem('cart', JSON.stringify(fil));
@@ -23,9 +23,9 @@ function handleDelete(e: any, data: IProductCart[], id: number):void {
 }
 //func change quantity when click button increase or deacrease
 function handleChangeNumber(e: any, data: IProductCart[], id: number):void {
-  let pointer = e.target;
+  let pointer:any = e.target;
   // Get index
-  let index = data.findIndex(x => x.id == id);
+  let index:number = data.findIndex(x => x.id == id);
   //Check is decrease or increase
   if (pointer.className == "cart-qty-up") {
     updateInput(data, index, "+");
@@ -44,9 +44,9 @@ function handleChangeNumber(e: any, data: IProductCart[], id: number):void {
 //func change quantity when input number
 function handleChangeQuantity(e: any, data: IProductCart[], id: number):void {
   // get value input
-  let valueNumber = Number(e.target.value);
+  let valueNumber:number = Number(e.target.value);
   // Get index
-  let index = data.findIndex(x => x.id == id);
+  let index:number = data.findIndex(x => x.id == id);
   // number < 1 -> value input = current quantity
   if (valueNumber < 1) {
     updateInput(data, index, data[index].qty);
@@ -60,7 +60,7 @@ function handleChangeQuantity(e: any, data: IProductCart[], id: number):void {
 }
 // total price
 function totalPrice(arr: IProductCart[]):number {
-  let sum = 0;
+  let sum:number = 0;
   for (let element of arr) {
     sum += (element.price - (element.price * (element.discount / 100))) * element.qty;
   };
@@ -114,7 +114,7 @@ function renderCartEmpty():string {
 //render view
 function render(data: IProductCart[]):void {
   // map data car
-  let li = '';
+  let li:string = '';
   for (let element of data) {
     li += returnListCart(element);
   };
@@ -131,7 +131,7 @@ function renderHTML(data: IProductCart[]):void {
   }
 }
 //get data
-var listCart = getDataLocal('cart', []);
+var listCart:IProductCart[] = getDataLocal('cart', []);
 //render data
 renderHTML(listCart);
 //add event
