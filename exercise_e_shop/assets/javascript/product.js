@@ -1,4 +1,5 @@
 import { addEvent,updateNumberCart,updateItem,getDataLocal} from './index.js';
+import '../stylesheet/style.scss';
 // get data
 function fetchData(data){
   return data;

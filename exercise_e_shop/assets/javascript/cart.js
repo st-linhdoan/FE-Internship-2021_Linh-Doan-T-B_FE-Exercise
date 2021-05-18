@@ -1,4 +1,5 @@
-import {addEvent,getDataLocal,updateItem, updateNumberCart} from './index.js'
+import {addEvent,getDataLocal,updateItem, updateNumberCart} from './index.js';
+import '../stylesheet/style.scss';
 //update data after handle
 function updateData(data) {
   document.getElementsByClassName('total-price')[0].innerHTML = totalPrice(data).toFixed(2);
@@ -104,7 +105,7 @@ function renderCartEmpty() {
     <div class="notification-container text-center" > 
     <img src="https://professionalscareer.com/assets/images/emptycart.png">
       <br>
-      <a href="./home.html" class="btn btn-orange">Continue to purchase</a>
+      <a href="./index.html" class="btn btn-orange">Continue to purchase</a>
     </div>
   `
   return html;
