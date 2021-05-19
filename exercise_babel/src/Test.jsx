@@ -1,7 +1,9 @@
 import React from "react";
+import '../style.scss'
 function Test() {
   const handleClick = (name) => {
     alert(`Xin chào ${name}`);
+    console.log(A);
   }
   return (
     <div>

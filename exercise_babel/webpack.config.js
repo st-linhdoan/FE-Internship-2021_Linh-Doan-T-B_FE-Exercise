@@ -23,12 +23,6 @@ module.exports = {
         test: /\.js$|jsx/,
         use: {
           loader: 'babel-loader',
-          // options: {
-          //   presets: [
-          //     "@babel/preset-react",
-          //     "@babel/preset-env",
-          //   ]
-          // }
         },
         exclude: '/node_modules/',
       },
@@ -37,11 +31,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: 'index.html', filename: 'index.html', chunks: ["home"] }),
   ],
+  resolve: {
+    extensions: ['.jsx', '.js']
+  },
   devServer: {
     contentBase: path.join(__dirname),
     compress: true,
     port: 4000,
   },
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval',
 }
