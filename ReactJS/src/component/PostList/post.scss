@@ -1,0 +1,64 @@
+.container {
+  width: 1120px;
+  margin: 0 auto;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.posts {
+  .post-item {
+    list-style: none;
+    padding: 10px 0;
+  }
+  .post {
+    display: flex;
+    justify-content: space-between;
+  }
+  .post-content{
+    padding: 10px 0;
+  }
+  .post-img {
+    width: 300px;
+    margin-right: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+  .post-category {
+    font-size: 16px;
+    color: orange;
+  }
+  .post-title {
+    padding: 10px 0;
+  }
+  .post-desc {
+    padding: 10px 0;
+  }
+  .post-info {
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .post-info-author {
+    margin-right: 20px;
+    &::before{
+      content: "BY";
+      text-transform: uppercase;
+      color: gray;
+      margin-right: 5px;
+    }
+  }
+  .post-info-date {
+    margin-right: 20px;
+  }
+  .post-info-read {
+    &::after{
+      content: "mins read";
+      text-transform: uppercase;
+      margin-left: 5px;
+    }
+  }
+}
