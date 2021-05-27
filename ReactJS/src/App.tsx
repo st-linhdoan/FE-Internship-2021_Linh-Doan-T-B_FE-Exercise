@@ -1,9 +1,9 @@
 import React from "react";
-import Post from './component/PostList';
+import Blogs from './pages/Blogs';
 function App() {
   return (
     <div>
-      <Post />
+      <Blogs />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './post.scss';
+import './blogs.scss';
 import axios from 'axios';
 import { IPost } from '../../interface/IPost';
-import PostDetail from '../PostDetail';
+import Blog from '../../component/BLog';
 
-const PostList: React.FC<IPost> = () => {
+const Blogs: React.FC<IPost> = () => {
   const [listPost, setListPost] = useState([]);
   useEffect(() => {
     axios.get(`https://6088e20da6f4a300174271e7.mockapi.io/articles`)
@@ -16,15 +16,15 @@ const PostList: React.FC<IPost> = () => {
         console.log(err);
       })
   }, [])
- 
+
   return (
     <div className="container">
       <ul className="posts">
         {
-          listPost.map((item:IPost, index:number) => {
+          listPost.map((item: IPost, index: number) => {
             return (
               <li key={index.toString()} className="post-item">
-                <PostDetail post={item} />
+                <Blog post={item} />
               </li>
             )
           })
@@ -34,4 +34,4 @@ const PostList: React.FC<IPost> = () => {
   );
 }
 
-export default PostList;
+export default Blogs;
