@@ -31,7 +31,6 @@ const Blogs: React.FC<IPost> = () => {
                   <Blog post={item} />
                 </Link>
               </li>
-            
             )
           })
         }

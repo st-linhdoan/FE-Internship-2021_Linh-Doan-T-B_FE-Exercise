@@ -1,10 +1,12 @@
+$color-red:red;
+$color-grey:grey;
 .blog-detail {
   width: 1120px;
   margin: 0 auto;
   .detail-category {
     margin: 20px 0;
     font-size: 14px;
-    color: red;
+    color: $color-red;
   }
   .detail-img {
     width: 100%;
@@ -20,7 +22,7 @@
     line-height: 24px;
   }
   .detail-info {
-    color: grey;
+    color: $color-grey;
     padding: 10px 0;
     font-size: 14px;
   }
@@ -30,7 +32,7 @@
       content: "by";
       text-transform: uppercase;
       margin-right: 5px;
-      color: grey;
+      color: $color-grey;
     }
   }
   .detail-read{
@@ -39,7 +41,7 @@
       content: "mins read";
       text-transform: uppercase;
       margin-left: 5px;
-      color: grey;
+      color: $color-grey;
     }
   }
 }
