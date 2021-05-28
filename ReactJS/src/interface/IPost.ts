@@ -1,4 +1,5 @@
 interface IPost {
+  id:number,
   title: string,
   image: string,
   category: string,
@@ -8,3 +9,4 @@ interface IPost {
   minsRead: string,
 }
 export {IPost};
+
