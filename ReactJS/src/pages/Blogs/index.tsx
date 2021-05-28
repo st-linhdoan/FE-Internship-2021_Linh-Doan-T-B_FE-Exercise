@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API from '../../service/PathApi'
 import { IPost } from '../../interface/IPost';
 import Blog from '../../component/BLog';
 import {Link} from "react-router-dom";
@@ -8,8 +9,7 @@ import './blogs.scss';
 const Blogs: React.FC<IPost> = () => {
   const [listPost, setListPost] = useState([]);
   useEffect(() => {
-    const domainApi = `https://6088e20da6f4a300174271e7.mockapi.io/articles`
-    axios.get(domainApi)
+    axios.get(API.API_ARTICLE)
       .then(function (res) {
         const data = res.data;
         setListPost(data);
