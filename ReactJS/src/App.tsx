@@ -1,9 +1,9 @@
 import React from "react";
-import Blogs from './pages/Blogs';
-function App() {
+
+function App(props) {
   return (
     <div>
-      <Blogs />
+      {props.children}
     </div>
   );
 }

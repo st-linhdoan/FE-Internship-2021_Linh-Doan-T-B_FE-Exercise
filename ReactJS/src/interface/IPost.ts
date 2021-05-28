@@ -1,4 +1,5 @@
 interface IPost {
+  id:number,
   title: string,
   image: string,
   category: string,
@@ -7,4 +8,7 @@ interface IPost {
   createdAt: string,
   minsRead: string,
 }
-export {IPost};
+type IDetail = IPost & {
+  content:string
+}
+export {IPost,IDetail};

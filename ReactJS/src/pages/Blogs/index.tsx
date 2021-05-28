@@ -3,7 +3,15 @@ import './blogs.scss';
 import axios from 'axios';
 import { IPost } from '../../interface/IPost';
 import Blog from '../../component/BLog';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import {
+  Link
+} from "react-router-dom";
+import BlogDetails from '../BlogDetails';
 const Blogs: React.FC<IPost> = () => {
   const [listPost, setListPost] = useState([]);
   useEffect(() => {
@@ -18,19 +26,24 @@ const Blogs: React.FC<IPost> = () => {
   }, [])
 
   return (
+    <>
     <div className="container">
       <ul className="posts">
         {
           listPost.map((item: IPost, index: number) => {
             return (
-              <li key={index.toString()} className="post-item">
-                <Blog post={item} />
-              </li>
+                <li key={index.toString()} className="post-item">
+                  <Link to={`/articles/${item.id}`}>
+                    <Blog post={item} />
+                  </Link>
+                </li>
+             
             )
           })
         }
       </ul>
     </div>
+    </>
   );
 }
 

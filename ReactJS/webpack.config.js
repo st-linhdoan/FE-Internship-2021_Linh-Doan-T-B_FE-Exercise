@@ -42,6 +42,7 @@ module.exports = {
     extensions: ['.jsx', '.js','.tsx']
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname),
     compress: true,
     port: 4000,
