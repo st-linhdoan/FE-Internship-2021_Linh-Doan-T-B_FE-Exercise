@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
     clean: true,
   },
   module: {
@@ -27,7 +28,7 @@ module.exports = {
         exclude: '/node_modules/',
       },
       {
-        test: /\.tsx/,
+        test: /\.tsx?$/,
         use: [
           'ts-loader'
         ],

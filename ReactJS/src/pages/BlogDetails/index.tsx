@@ -15,11 +15,10 @@ const BlogDetails: React.FC<IDetail> = () => {
       .catch(function (err) {
         console.log(err);
       })
+    
   }, [])
   return (
-    <>
-      <BlogDetail detail = {detailBlog}/>
-    </>
+    <BlogDetail detail = {detailBlog}/>
   );
 }
 
