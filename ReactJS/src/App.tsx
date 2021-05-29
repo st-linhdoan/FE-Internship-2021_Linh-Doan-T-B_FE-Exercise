@@ -1,9 +1,10 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
-function App(props) {
+const App = (props) => {
   return (
-    <div>
-      {props.children}
+    <div className="container">
+        {props.children}
     </div>
   );
 }
