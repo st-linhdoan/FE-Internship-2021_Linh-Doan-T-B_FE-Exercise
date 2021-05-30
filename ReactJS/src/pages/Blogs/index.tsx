@@ -29,31 +29,29 @@ const Blogs: React.FC<IPost> = () => {
 
   return (
     <>
-    <div className="container">
       {
       !notifi ? (
-      !isLoading ? 
-        <ul className="posts">
-          {
-            listPost.map((item: IPost) => {
-              return (
-                <li key={item.id.toString()} className="post-item">
-                  <Link to={`/articles/${item.id}`}>
-                    <Blog post={item} />
-                  </Link>
-                </li>
-              )
-            })
-          }
-        </ul>
-      : 
+        !isLoading ? 
+          <ul className="posts">
+            {
+              listPost.map((item: IPost) => {
+                return (
+                  <li key={item.id.toString()} className="post-item">
+                    <Link to={`/articles/${item.id}`}>
+                      <Blog post={item} />
+                    </Link>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        : 
         <div className="img-loading">
           <img src= "https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
         </div>
       )
       : <Portal/>
       }
-    </div>
     </>
   );
 }

@@ -1,8 +1,10 @@
-.modal-root{
+$bg-modal:rgba(0,0,0,0.5);
+$color-blue:blue;
+.modal-root {
   position: relative;
   z-index: 999;
   .modal {
-    background-color: rgba(0,0,0,0.5);
+    background-color: $bg-modal;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -11,13 +13,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    h1{
+    h1 {
       padding: 50px;
     }
   }
-  .btn{
+  .btn {
     font-size: 20px;
-    background-color: blue;
+    background-color: $color-blue;
     color: white;
     border:0;
     padding: 10px;

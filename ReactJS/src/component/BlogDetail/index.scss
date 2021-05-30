@@ -1,12 +1,12 @@
 $color-red:red;
 $color-grey:grey;
 .blog-detail {
-  width: 1120px;
-  margin: 0 auto;
+  padding: 20px;
   .detail-category {
     margin: 20px 0;
     font-size: 14px;
     color: $color-red;
+     word-wrap: break-word
   }
   .detail-img {
     width: 100%;
@@ -15,6 +15,7 @@ $color-grey:grey;
     padding: 20px 0;
     font-size: 16px;
     line-height: 24px;
+     word-wrap: break-word
   }
   .detail-content {
     padding: 20px 0;
@@ -26,7 +27,7 @@ $color-grey:grey;
     padding: 10px 0;
     font-size: 14px;
   }
-  .detail-author{
+  .detail-author {
     padding-right: 10px;
     &::before {
       content: "by";
@@ -35,7 +36,7 @@ $color-grey:grey;
       color: $color-grey;
     }
   }
-  .detail-read{
+  .detail-read {
     padding-left: 10px;
     &::after {
       content: "mins read";
@@ -45,6 +46,16 @@ $color-grey:grey;
     }
   }
 }
-.img-loading{
+.img-loading {
   text-align: center;
+}
+@media screen and (max-width: 425px) {
+  .detail-info {
+    span {
+      display: block;
+    }
+  }
+  .detail-read {
+    padding-left: 0!important;
+  }
 }

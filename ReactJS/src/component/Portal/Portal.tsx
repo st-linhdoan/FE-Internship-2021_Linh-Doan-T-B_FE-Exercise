@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import React from 'react';
 import { createPortal } from "react-dom";
 import './style.scss'
-
 interface Props {
   childrem: string;
 }
@@ -12,7 +11,7 @@ const Portal: React.FC<Props> = ({ children }) => {
   const el = document.createElement("div");
 
   el.setAttribute("class", "modal");
-  useEffect(() => {
+  useEffect(() => { 
     mount.appendChild(el);
     return () => mount.removeChild(el);
   }, [el, mount]);

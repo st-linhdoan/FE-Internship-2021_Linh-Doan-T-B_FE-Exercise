@@ -1,13 +1,16 @@
 import React from 'react';
 import { IPost } from '../../interface/IPost';
+
 const PostDetail: React.FC<IPost> = ({ post }) => {
-  const {category, title,desc,author,createdAt,minsRead} = post
+  const {category, title,desc,author,createdAt,minsRead} = post;
+
   const formartDate = (date:String) => {
     let res:string[] = date.split('T');
     let day:string = res[0].split('-').reverse().join('/');
     let time:string[] = res[1].split('.')[0].split(':');
     return `${day} ${time[0]}:${time[1]} EST`;
   }
+
   return (
     <div className="post">
       <div className="post-img">

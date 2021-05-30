@@ -5,6 +5,7 @@ import axios from 'axios';
 import API from '../../service/PathApi'
 import { IDetail } from '../../interface/IPost';
 import Portal from '../../component/Portal';
+
 const BlogDetails: React.FC<IDetail> = () => {
   const {id} = useParams();
   const [detailBlog, setDetailBlog] = useState({});
