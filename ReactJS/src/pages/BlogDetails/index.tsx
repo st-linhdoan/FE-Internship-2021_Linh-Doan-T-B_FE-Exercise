@@ -8,7 +8,7 @@ import { IDetail } from '../../interface/IPost';
 const BlogDetails: React.FC<IDetail> = () => {
   const {id} = useParams();
   const [detailBlog, setDetailBlog] = useState({});
-  
+
   useEffect(() => {
     axios.get(API.API_ARTICLE + `/${id}`)
       .then(function (res) {
