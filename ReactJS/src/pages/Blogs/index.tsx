@@ -40,13 +40,15 @@ const Blogs: React.FC<IPost> = () => {
 
   const PostRender = (Wrapped:any) => {
     return function (props: any) {
-      return (
-        <>
-        {!props.data && <p>Loading</p>}
-        {(props.data && props.data.length === 0) && <p>Empty</p>}
-        {(props.data && props.data.length > 0) && <Wrapped {...props} />}
-        </>
-      )
+      if (!props.data) {
+        return <p>Loading...</p>
+      }
+      else {
+        if (!props.data.length) {
+          return <p>Empty</p>
+        }
+        return <Wrapped {...props} />
+      }
     }
   }
 

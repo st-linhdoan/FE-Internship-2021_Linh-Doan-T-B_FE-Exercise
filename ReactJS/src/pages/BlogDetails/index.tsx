@@ -26,15 +26,17 @@ const BlogDetails: React.FC<IDetail> = () => {
     )
   }
 
-  const DetailRender = (Wrapper: any) => {
+  const DetailRender = (Wrapped: any) => {
     return function (props: any) {
-      return (
-        <>
-          {!props.data && <p>Loading</p>}
-          {(props.data && JSON.stringify(props.data) === '{}') && <p>Empty</p>}
-          {(props.data && JSON.stringify(props.data) !== '{}') && <Wrapper {...props} />}
-        </>
-      )
+      if(!props.data){
+        return <p>Loading...</p>
+      }
+      else {
+        if (JSON.stringify(props.data) === '{}'){
+          return <p>Empty</p>
+        }
+        return <Wrapped {...props}/>
+      }
     }
   }
 
