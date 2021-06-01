@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{lazy,Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import App from './src/App'
 import {
@@ -6,17 +6,18 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Blogs from './src/pages/Blogs';
-import BlogDetails from './src/pages/BlogDetails'
-
+const Blogs = lazy(() => import('./src/pages/Blogs'));
+const BlogDetails = lazy(() => import('./src/pages/BlogDetails'));
 ReactDOM.render(
   <Router>
+    <Suspense fallback={<div>Loading...</div>}>
     <App>
       <Switch>
         <Route exact path="/" component={Blogs} />
         <Route path ="/articles/:id" component={BlogDetails} />
       </Switch>
     </App>
+    </Suspense>
   </Router>,
   document.getElementById('root')
 );
