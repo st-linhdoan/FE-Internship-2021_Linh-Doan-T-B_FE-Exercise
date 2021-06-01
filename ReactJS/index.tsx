@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Blogs from './src/pages/Blogs';
 import BlogDetails from './src/pages/BlogDetails'
+
 ReactDOM.render(
   <Router>
     <App>
