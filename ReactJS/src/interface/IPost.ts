@@ -11,4 +11,5 @@ interface IPost {
 type IDetail = IPost & {
   content:string
 }
+
 export {IPost,IDetail};

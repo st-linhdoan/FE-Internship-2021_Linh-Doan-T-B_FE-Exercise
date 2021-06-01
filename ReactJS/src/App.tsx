@@ -1,9 +1,9 @@
 import React from "react";
 
-function App(props) {
+const App = (props) => {
   return (
-    <div>
-      {props.children}
+    <div className="container">
+        {props.children}
     </div>
   );
 }
