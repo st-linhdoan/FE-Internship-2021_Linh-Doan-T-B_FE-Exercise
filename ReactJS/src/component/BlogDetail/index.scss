@@ -1,0 +1,47 @@
+$color-red:red;
+$color-grey:grey;
+.blog-detail {
+  width: 1120px;
+  margin: 0 auto;
+  .detail-category {
+    margin: 20px 0;
+    font-size: 14px;
+    color: $color-red;
+  }
+  .detail-img {
+    width: 100%;
+  }
+  .detail-desc {
+    padding: 20px 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .detail-content {
+    padding: 20px 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .detail-info {
+    color: $color-grey;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .detail-author{
+    padding-right: 10px;
+    &::before {
+      content: "by";
+      text-transform: uppercase;
+      margin-right: 5px;
+      color: $color-grey;
+    }
+  }
+  .detail-read{
+    padding-left: 10px;
+    &::after {
+      content: "mins read";
+      text-transform: uppercase;
+      margin-left: 5px;
+      color: $color-grey;
+    }
+  }
+}
