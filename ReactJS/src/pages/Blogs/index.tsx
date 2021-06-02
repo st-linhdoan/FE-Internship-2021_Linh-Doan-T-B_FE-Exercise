@@ -1,30 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import API from '../../service/PathApi'
 import { IPost } from '../../interface/IPost';
+import { IState } from '../../interface/IRedux';
 import Blog from '../../component/BLog';
 import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {getPost} from '../../../store/post/action'
 import './blogs.scss';
 
-const Blogs: React.FC<IPost> = () => {
-  const [listPost, setListPost] = useState([]);
+const Blogs = () => {
+  // const [listPost, setListPost] = useState([]);
+  const dispatch = useDispatch();
+  const listPost = useSelector((state:IState) => state.post.data);
   useEffect(() => {
-    axios.get(API.API_ARTICLE)
-      .then(function (res) {
-        const data = res.data;
-        setListPost(data);
-      })
-      .catch(function (err) {
-        console.log(err);
-      })
+    dispatch(getPost())
   }, [])
-
+  console.log(listPost);
   return (
     <>
     <div className="container">
       <ul className="posts">
         {
-          listPost.map((item: IPost) => {
+          listPost && (listPost.map((item: IPost) => {
             return (
               <li key={item.id.toString()} className="post-item">
                 <Link to={`/articles/${item.id}`}>
@@ -32,7 +28,7 @@ const Blogs: React.FC<IPost> = () => {
                 </Link>
               </li>
             )
-          })
+          }))
         }
       </ul>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { IDetail } from '../../interface/IPost';
 import './index.scss'
-const BlogDetail : React.FC<IDetail> = ({detail}) => {
+
+const BlogDetail = ({detail}) => {
   return (
     <>
       <div className="blog-detail">

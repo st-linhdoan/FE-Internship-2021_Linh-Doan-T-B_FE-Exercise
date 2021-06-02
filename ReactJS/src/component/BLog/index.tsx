@@ -2,7 +2,7 @@ import React from 'react';
 import { IPost } from '../../interface/IPost';
 import {formatDate} from '../../../until'
 
-const PostDetail: React.FC<IPost> = ({ post }) => {
+const PostDetail = ({post} ) => {
   const {category, title,desc,author,createdAt,minsRead} = post
 
   return (
