@@ -7,7 +7,7 @@ import { IDetail } from '../../interface/IPost';
 
 const BlogDetails: React.FC<IDetail> = () => {
   const {id} = useParams();
-  const [detailBlog, setDetailBlog] = useState({});
+  const [detailBlog, setDetailBlog] = useState(null);
 
   useEffect(() => {
     axios.get(API.API_ARTICLE + `/${id}`)
@@ -18,10 +18,32 @@ const BlogDetails: React.FC<IDetail> = () => {
       .catch(function (err) {
         console.log(err);
       })
-    
   }, [])
+
+  const ListDetailContent = (props) => {
+    return (
+      <BlogDetail detail = {props.data} />
+    )
+  }
+
+  const DetailRender = (Wrapped: any) => {
+    return function (props: any) {
+      if(!props.data){
+        return <p>Loading...</p>
+      }
+      else {
+        if (JSON.stringify(props.data) === '{}'){
+          return <p>Empty</p>
+        }
+        return <Wrapped {...props}/>
+      }
+    }
+  }
+
+  const DetailContent = DetailRender(ListDetailContent);
+
   return (
-    <BlogDetail detail = {detailBlog}/>
+    <DetailContent data = {detailBlog} />
   );
 }
 

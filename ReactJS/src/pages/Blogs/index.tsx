@@ -7,7 +7,8 @@ import {Link} from "react-router-dom";
 import './blogs.scss';
 
 const Blogs: React.FC<IPost> = () => {
-  const [listPost, setListPost] = useState([]);
+  const [listPost, setListPost] = useState(null);
+
   useEffect(() => {
     axios.get(API.API_ARTICLE)
       .then(function (res) {
@@ -19,12 +20,11 @@ const Blogs: React.FC<IPost> = () => {
       })
   }, [])
 
-  return (
-    <>
-    <div className="container">
+  const ListPostContent = (props) => {
+    return (
       <ul className="posts">
         {
-          listPost.map((item: IPost) => {
+          props.data.map((item: IPost) => {
             return (
               <li key={item.id.toString()} className="post-item">
                 <Link to={`/articles/${item.id}`}>
@@ -35,6 +35,29 @@ const Blogs: React.FC<IPost> = () => {
           })
         }
       </ul>
+    )
+  }
+
+  const PostRender = (Wrapped:any) => {
+    return function (props: any) {
+      if (!props.data) {
+        return <p>Loading...</p>
+      }
+      else {
+        if (!props.data.length) {
+          return <p>Empty</p>
+        }
+        return <Wrapped {...props} />
+      }
+    }
+  }
+
+  const PostContent = PostRender(ListPostContent);
+
+  return (
+    <>
+    <div className="container">
+      <PostContent data = {listPost} />
     </div>
     </>
   );
